@@ -1,5 +1,6 @@
 //Includes
 #include <Annwvyn.h>
+#include "LeapIntegration.hpp"
 
 //Namespaces
 using namespace std;
@@ -14,8 +15,11 @@ AnnMain()
 
 	GameEngine->oculusInit(true);
 
+	AnnLeapInterface leap;
+
 	while(!GameEngine->requestStop())
 	{
+		leap.pollData();
 		GameEngine->refresh();
 	}
 
