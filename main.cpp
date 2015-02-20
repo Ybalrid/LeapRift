@@ -1,6 +1,7 @@
 //Includes
 #include <Annwvyn.h>
 #include "LeapIntegration.hpp"
+#include "LeapVisualizer.hpp"
 #include "DebugGUI.hpp"
 #include <string>
 
@@ -22,20 +23,37 @@ AnnMain()
 
 	AnnLeapInterface leap;
 
-	DebugGUI gui;
-	gui.setText("Ceci est un putain de TEST");
-	gui.init(GameEngine->getCamera());
+	
 
+	//create hands objects:
+	AnnGameObject* leftHand = GameEngine->createGameObject("placeholder.mesh");
+	AnnGameObject* rightHand = GameEngine->createGameObject("placeholder.mesh");
+
+	LeapVisualizer visualizer;
+	visualizer.setHandsObjects(leftHand, rightHand);
+
+
+	//DebugGUI gui;
+	//gui.setText("Ceci est un putain de TEST");
+	//gui.init(GameEngine->getCamera()); 
+
+
+
+	AnnGameObject* Suzanne = GameEngine->createGameObject("Suzanne.mesh");
+	GameEngine->setAmbiantLight(Ogre::ColourValue(.2f,.2f,.2f));
 
 	while(!GameEngine->requestStop())
 	{
 		leap.pollData();
-		gui.setText(leap.getLogMessage());
-		gui.update();
+		//gui.setText(leap.getLogMessage());
+		//gui.update();
+
+		visualizer.setPov(GameEngine->getPoseFromOOR());
+		visualizer.updateHandPosition(leap.getLeftHand(), leap.getRightHand());
 		GameEngine->refresh();
 	}
 
-	delete GameEngine;
+	//delete GameEngine;
 	return 0;
 }
 

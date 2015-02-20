@@ -12,11 +12,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LeapIntegration.cpp" />
+    <ClCompile Include="LeapVisualizer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DebugGUI.hpp" />
     <ClInclude Include="LeapIntegration.hpp" />
+    <ClInclude Include="LeapVisualizer.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FF00A220-BA2F-45E4-8335-A7ACCACD0F1B}</ProjectGuid>
