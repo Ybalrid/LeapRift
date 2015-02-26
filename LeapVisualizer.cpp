@@ -1,5 +1,5 @@
 #include "LeapVisualizer.hpp"
-
+#include <sstream>
 using namespace Annwvyn;
 
 LeapVisualizer::LeapVisualizer()
@@ -83,32 +83,64 @@ void LeapVisualizer::updateHandPosition(Leap::Hand lhand, Leap::Hand rhand)
 		visualHands[right]->node()->setVisible(false);
 	}
 
-	//updateHandOrientation(lhand, rhand);
+	updateHandOrientation(lhand, rhand);
 }
 
 void LeapVisualizer::updateHandOrientation(Leap::Hand lhand, Leap::Hand rhand)
 {
-	Ogre::Matrix4 proj(
-		-1, 0, 0, 0,
-		0, 0, -1, 0,
-		0, -1, 0, 0,
-		0, 0, 0, 1
-		);
-
-	if(lhand.isValid() &&visualHands[left])
+	if(lhand.isValid() && visualHands[left])
 	{
-		Ogre::Vector4 normal(lhand.palmNormal().x, lhand.palmNormal().y, lhand.palmNormal().z, 1);
-		Ogre::Vector4 direction(lhand.direction().x, lhand.direction().y, lhand.direction().z, 1);
+		//Get vectors from the LEAP hand object
+		Leap::Vector normal(lhand.palmNormal());
+		Leap::Vector direction(lhand.direction());
 
-		normal = proj * normal;
-		direction = proj * direction;
+		//Reorient them to a local base "attached on the rift"
+		normal = Leap::Vector(-normal.x, -normal.z, -normal.y);
+		direction = Leap::Vector(-direction.x, -direction.z, -direction.y);
 
-		Ogre::Vector3 Y(-normal.x, -normal.y, -normal.z);
-		Ogre::Vector3 Z(-direction.x, -direction.y, -direction.z);
+		//Get the "world-space" projection (and in the same time convert object to OGRE classes ;-) )
+		Ogre::Vector3 projectedNormal = lPose.orientation*Ogre::Vector3(normal.x, normal.y, normal.z);
+		Ogre::Vector3 projectedDirection = lPose.orientation*Ogre::Vector3(direction.x, direction.y, direction.z);
+
+		//Make them unit vectors (norm = 1)
+		projectedNormal.normalise();
+		projectedDirection.normalise();
+
+		//Calculate a cathesian base oriented like the hand
+		Ogre::Vector3 Y = -projectedNormal;
+		Ogre::Vector3 Z = -projectedDirection;
 		Ogre::Vector3 X = Y.crossProduct(Z);
 
-		visualHands[left]->setOrientation(Ogre::Quaternion(X, Y, Z));
 
+		//Get the corresponding quaternion and apply it to the hand
+		visualHands[left]->setOrientation(Ogre::Quaternion(X,Y,Z));
 	}
 
+		if(rhand.isValid() && visualHands[right])
+	{
+		//Get vectors from the LEAP hand object
+		Leap::Vector normal(rhand.palmNormal());
+		Leap::Vector direction(rhand.direction());
+
+		//Reorient them to a local base "attached on the rift"
+		normal = Leap::Vector(-normal.x, -normal.z, -normal.y);
+		direction = Leap::Vector(-direction.x, -direction.z, -direction.y);
+
+		//Get the "world-space" projection (and in the same time convert object to OGRE classes ;-) )
+		Ogre::Vector3 projectedNormal = lPose.orientation*Ogre::Vector3(normal.x, normal.y, normal.z);
+		Ogre::Vector3 projectedDirection = lPose.orientation*Ogre::Vector3(direction.x, direction.y, direction.z);
+
+		//Make them unit vectors (norm = 1)
+		projectedNormal.normalise();
+		projectedDirection.normalise();
+
+		//Calculate a cathesian base oriented like the hand
+		Ogre::Vector3 Y = -projectedNormal;
+		Ogre::Vector3 Z = -projectedDirection;
+		Ogre::Vector3 X = Y.crossProduct(Z);
+
+
+		//Get the corresponding quaternion and apply it to the hand
+		visualHands[right]->setOrientation(Ogre::Quaternion(X,Y,Z));
+	}
 }

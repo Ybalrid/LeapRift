@@ -28,8 +28,8 @@ AnnMain()
 	
 
 	//create hands objects:
-	AnnGameObject* leftHand = GameEngine->createGameObject("placeholder.mesh");
-	AnnGameObject* rightHand = GameEngine->createGameObject("placeholder.mesh");
+	AnnGameObject* leftHand = GameEngine->createGameObject("pointer.mesh");
+	AnnGameObject* rightHand = GameEngine->createGameObject("pointer.mesh");
 
 	LeapVisualizer visualizer;
 	visualizer.setHandsObjects(leftHand, rightHand);
