@@ -1,5 +1,7 @@
 //Includes
 #include <Annwvyn.h>
+
+
 #include "LeapIntegration.hpp"
 #include "LeapVisualizer.hpp"
 #include "DebugGUI.hpp"
@@ -41,6 +43,8 @@ AnnMain()
 
 	AnnGameObject* Suzanne = GameEngine->createGameObject("Suzanne.mesh");
 	GameEngine->setAmbiantLight(Ogre::ColourValue(.2f,.2f,.2f));
+
+	Suzanne->setPos(0,0,8);
 
 	while(!GameEngine->requestStop())
 	{

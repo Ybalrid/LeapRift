@@ -25,7 +25,7 @@ public:
 
 		camera = rootNode;
 		GUI_root = camera->createChildSceneNode();				
-		GUI_root->translate(-0.6,0,-2);
+		GUI_root->translate(-0.6f, 0.0f, -2.0f);
 		svbk = new Gorilla::Silverback();
 		svbk->loadAtlas("dejavu");
 

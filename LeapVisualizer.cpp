@@ -41,6 +41,8 @@ void LeapVisualizer::setPov(OgrePose pose)
 	Ogre::Matrix4 rotation(pose.orientation);
 
 	currentPov = translation * rotation;
+
+	lPose = pose;
 }
 
 Ogre::Matrix4 LeapVisualizer::getProjectionFromCurrentPose()
@@ -80,4 +82,33 @@ void LeapVisualizer::updateHandPosition(Leap::Hand lhand, Leap::Hand rhand)
 	{
 		visualHands[right]->node()->setVisible(false);
 	}
+
+	//updateHandOrientation(lhand, rhand);
+}
+
+void LeapVisualizer::updateHandOrientation(Leap::Hand lhand, Leap::Hand rhand)
+{
+	Ogre::Matrix4 proj(
+		-1, 0, 0, 0,
+		0, 0, -1, 0,
+		0, -1, 0, 0,
+		0, 0, 0, 1
+		);
+
+	if(lhand.isValid() &&visualHands[left])
+	{
+		Ogre::Vector4 normal(lhand.palmNormal().x, lhand.palmNormal().y, lhand.palmNormal().z, 1);
+		Ogre::Vector4 direction(lhand.direction().x, lhand.direction().y, lhand.direction().z, 1);
+
+		normal = proj * normal;
+		direction = proj * direction;
+
+		Ogre::Vector3 Y(-normal.x, -normal.y, -normal.z);
+		Ogre::Vector3 Z(-direction.x, -direction.y, -direction.z);
+		Ogre::Vector3 X = Y.crossProduct(Z);
+
+		visualHands[left]->setOrientation(Ogre::Quaternion(X, Y, Z));
+
+	}
+
 }

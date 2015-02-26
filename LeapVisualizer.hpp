@@ -25,6 +25,9 @@ namespace Annwvyn
 		Ogre::Matrix4 leapOculus;
 		Ogre::Matrix4 scalling;
 
+		OgrePose lPose;
+		void updateHandOrientation(Leap::Hand lhand, Leap::Hand rhand);
+
 	};
 }
 
