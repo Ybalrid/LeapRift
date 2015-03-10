@@ -19,7 +19,7 @@ AnnMain()
 	AnnEngine* GameEngine = new AnnEngine("My Game");
 
 	GameEngine->loadDir("GUI");
-	GameEngine->initRessources();
+	GameEngine->initResources();
 
 	GameEngine->oculusInit(false);
 
@@ -28,7 +28,7 @@ AnnMain()
 	
 
 	//create hands objects:
-	AnnGameObject* leftHand = GameEngine->createGameObject("pointer.mesh");
+	AnnGameObject* leftHand = GameEngine->createGameObject("hand.left.mesh");
 	AnnGameObject* rightHand = GameEngine->createGameObject("pointer.mesh");
 
 	LeapVisualizer visualizer;
@@ -40,9 +40,12 @@ AnnMain()
 	//gui.init(GameEngine->getCamera()); 
 
 
-
 	AnnGameObject* Suzanne = GameEngine->createGameObject("Suzanne.mesh");
 	GameEngine->setAmbiantLight(Ogre::ColourValue(.2f,.2f,.2f));
+
+
+	AnnLightObject* l (GameEngine->addLight());
+	l->setPosition(0,0,-10);
 
 	Suzanne->setPos(0,0,8);
 

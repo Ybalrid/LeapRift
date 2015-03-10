@@ -114,6 +114,7 @@ void LeapVisualizer::updateHandOrientation(Leap::Hand lhand, Leap::Hand rhand)
 
 		//Get the corresponding quaternion and apply it to the hand
 		visualHands[left]->setOrientation(Ogre::Quaternion(X,Y,Z));
+		lwrist = Ogre::Quaternion(X,Y,Z);
 	}
 
 		if(rhand.isValid() && visualHands[right])
@@ -142,5 +143,76 @@ void LeapVisualizer::updateHandOrientation(Leap::Hand lhand, Leap::Hand rhand)
 
 		//Get the corresponding quaternion and apply it to the hand
 		visualHands[right]->setOrientation(Ogre::Quaternion(X,Y,Z));
+		lwrist = Ogre::Quaternion(X,Y,Z);
 	}
+		updateFingerPose(lhand, rhand);
+}
+
+
+void LeapVisualizer::updateFingerPose(Leap::Hand lhand, Leap::Hand rhand)
+{
+	if(lhand.isValid() && visualHands[left])
+	{
+		//Does the model has a skeleton attached ?
+		if(visualHands[left]->Entity()->hasSkeleton())
+		{
+			//get the skeleton
+			Ogre::SkeletonInstance* ske = visualHands[left]->Entity()->getSkeleton();
+
+			//get the 5 fingers of the hand
+			Leap::FingerList fingers = lhand.fingers();	
+			
+			Ogre::Bone* wrist = ske->getBone("Wrist");
+			wrist->setInheritOrientation(false);
+
+			//for each finger
+			for(int finger(0); finger < 5; finger++)
+			{
+				//for each finger bone
+				for(int bone = 1; bone < 4; bone++)
+				{
+					//Get the bone orientation
+					Ogre::Quaternion boneOrientation = getBoneOrientation(fingers[finger].bone(Leap::Bone::Type(bone)), true);
+					Ogre::Bone* b = ske->getBone(getBoneName(finger, bone));
+					b->setManuallyControlled(true);
+					b->setInheritOrientation(false);
+					b->setOrientation(boneOrientation);
+				}
+			}
+
+		}
+	}
+}
+
+Ogre::Quaternion LeapVisualizer::getBoneOrientation(Leap::Bone bone, bool isLeft)
+{
+
+	//Get the "basis" reference
+	Leap::Vector y = bone.basis().yBasis;
+	Leap::Vector z = bone.basis().zBasis;
+
+	if(isLeft)
+		z *= -1;
+	
+	Ogre::Vector3 worldY = Ogre::Vector3(-y.x, -y.z, -y.y);
+	Ogre::Vector3 worldZ = Ogre::Vector3(-z.x, -z.z, -z.y);
+	Ogre::Vector3 worldX = worldY.crossProduct(worldZ);
+	
+	worldX.normalise();
+	worldY.normalise();
+	worldZ.normalise();
+
+	return Ogre::Quaternion(worldX, worldZ, -worldY);
+
+	return Ogre::Quaternion::IDENTITY;
+}
+
+std::string LeapVisualizer::getBoneName(int finger, int bone)
+{
+	std::stringstream ss;
+	ss << "Finger_";
+	ss << finger;
+	ss << bone - 1;
+
+	return ss.str();
 }

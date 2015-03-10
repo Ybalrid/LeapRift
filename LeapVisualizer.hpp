@@ -27,7 +27,13 @@ namespace Annwvyn
 
 		OgrePose lPose;
 		void updateHandOrientation(Leap::Hand lhand, Leap::Hand rhand);
+		void updateFingerPose(Leap::Hand lhand, Leap::Hand rhand);
 
+		Ogre::Quaternion getBoneOrientation(Leap::Bone bone, bool isLeft = false);
+		std::string getBoneName(int finger, int bone);
+
+
+		Ogre::Quaternion lwrist, rwrist;
 	};
 }
 
