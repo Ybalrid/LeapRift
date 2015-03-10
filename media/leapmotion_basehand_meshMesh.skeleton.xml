@@ -1,0 +1,153 @@
+<skeleton >
+  <bones >
+    <bone id="0" name="Wrist" >
+      <position x="0.000000" y="0.000000" z="0.000000" />
+      <rotation angle="1.570796" >
+        <axis x="-1.000000" y="0.000000" z="0.000000" />
+      </rotation>
+    </bone>
+    <bone id="1" name="Finger_00" >
+      <position x="-1.376091" y="0.000000" z="-1.142557" />
+      <rotation angle="1.748012" >
+        <axis x="0.946107" y="-0.214559" z="0.242581" />
+      </rotation>
+    </bone>
+    <bone id="2" name="Finger_01" >
+      <position x="0.000000" y="1.922046" z="-0.000000" />
+      <rotation angle="0.422143" >
+        <axis x="-0.026201" y="-0.123265" z="-0.992029" />
+      </rotation>
+    </bone>
+    <bone id="3" name="Finger_02" >
+      <position x="0.000000" y="1.664376" z="-0.000000" />
+      <rotation angle="0.000000" >
+        <axis x="-0.000000" y="-0.000000" z="-0.000000" />
+      </rotation>
+    </bone>
+    <bone id="4" name="Finger_03" >
+      <position x="0.000000" y="1.256513" z="-0.000000" />
+      <rotation angle="1.571493" >
+        <axis x="-0.999303" y="0.026393" z="0.026393" />
+      </rotation>
+    </bone>
+    <bone id="5" name="Finger_10" >
+      <position x="-1.314658" y="-0.000001" z="2.197921" />
+      <rotation angle="1.630978" >
+        <axis x="0.999936" y="-0.007739" z="0.008219" />
+      </rotation>
+    </bone>
+    <bone id="6" name="Finger_11" >
+      <position x="-0.000000" y="1.956478" z="0.000000" />
+      <rotation angle="0.000000" >
+        <axis x="0.000000" y="0.000000" z="0.000000" />
+      </rotation>
+    </bone>
+    <bone id="7" name="Finger_12" >
+      <position x="0.000000" y="1.172062" z="-0.000000" />
+      <rotation angle="0.000000" >
+        <axis x="-0.000000" y="0.000000" z="0.000000" />
+      </rotation>
+    </bone>
+    <bone id="8" name="Finger_13" >
+      <position x="-0.000000" y="1.150793" z="-0.000000" />
+      <rotation angle="1.570796" >
+        <axis x="-1.000000" y="-0.000000" z="-0.000000" />
+      </rotation>
+    </bone>
+    <bone id="9" name="Finger_20" >
+      <position x="-0.053333" y="-0.000001" z="2.469820" />
+      <rotation angle="1.655474" >
+        <axis x="1.000000" y="-0.000000" z="-0.000000" />
+      </rotation>
+    </bone>
+    <bone id="10" name="Finger_21" >
+      <position x="0.000000" y="1.931082" z="-0.000000" />
+      <rotation angle="0.000000" >
+        <axis x="0.000000" y="0.000000" z="-0.000000" />
+      </rotation>
+    </bone>
+    <bone id="11" name="Finger_22" >
+      <position x="0.000000" y="1.315349" z="0.000000" />
+      <rotation angle="0.000000" >
+        <axis x="0.000000" y="0.000000" z="0.000000" />
+      </rotation>
+    </bone>
+    <bone id="12" name="Finger_23" >
+      <position x="0.000000" y="1.335899" z="-0.000000" />
+      <rotation angle="1.570796" >
+        <axis x="-1.000000" y="-0.000000" z="-0.000000" />
+      </rotation>
+    </bone>
+    <bone id="13" name="Finger_30" >
+      <position x="0.959611" y="-0.000000" z="2.314289" />
+      <rotation angle="1.712877" >
+        <axis x="1.000000" y="-0.000000" z="-0.000000" />
+      </rotation>
+    </bone>
+    <bone id="14" name="Finger_31" >
+      <position x="-0.000000" y="2.004612" z="0.000000" />
+      <rotation angle="0.000000" >
+        <axis x="0.000000" y="0.000000" z="0.000000" />
+      </rotation>
+    </bone>
+    <bone id="15" name="Finger_32" >
+      <position x="-0.000000" y="1.174219" z="0.000000" />
+      <rotation angle="0.000000" >
+        <axis x="-0.000000" y="-0.000000" z="-0.000000" />
+      </rotation>
+    </bone>
+    <bone id="16" name="Finger_33" >
+      <position x="-0.000000" y="1.130241" z="0.000000" />
+      <rotation angle="1.570796" >
+        <axis x="-1.000000" y="0.000000" z="0.000000" />
+      </rotation>
+    </bone>
+    <bone id="17" name="Finger_40" >
+      <position x="1.834576" y="-0.433138" z="2.121928" />
+      <rotation angle="1.671954" >
+        <axis x="1.000000" y="0.000000" z="0.000000" />
+      </rotation>
+    </bone>
+    <bone id="18" name="Finger_41" >
+      <position x="-0.000000" y="1.149469" z="-0.000000" />
+      <rotation angle="0.000000" >
+        <axis x="-0.000000" y="-0.000000" z="-0.000000" />
+      </rotation>
+    </bone>
+    <bone id="19" name="Finger_42" >
+      <position x="-0.000000" y="0.739794" z="-0.000000" />
+      <rotation angle="0.000000" >
+        <axis x="-0.000000" y="0.000000" z="0.000000" />
+      </rotation>
+    </bone>
+    <bone id="20" name="Finger_43" >
+      <position x="-0.000000" y="0.801444" z="0.000000" />
+      <rotation angle="1.570796" >
+        <axis x="-1.000000" y="0.000000" z="0.000000" />
+      </rotation>
+    </bone>
+  </bones>
+  <bonehierarchy >
+    <boneparent bone="Finger_00" parent="Wrist" />
+    <boneparent bone="Finger_01" parent="Finger_00" />
+    <boneparent bone="Finger_02" parent="Finger_01" />
+    <boneparent bone="Finger_03" parent="Finger_02" />
+    <boneparent bone="Finger_10" parent="Wrist" />
+    <boneparent bone="Finger_11" parent="Finger_10" />
+    <boneparent bone="Finger_12" parent="Finger_11" />
+    <boneparent bone="Finger_13" parent="Finger_12" />
+    <boneparent bone="Finger_20" parent="Wrist" />
+    <boneparent bone="Finger_21" parent="Finger_20" />
+    <boneparent bone="Finger_22" parent="Finger_21" />
+    <boneparent bone="Finger_23" parent="Finger_22" />
+    <boneparent bone="Finger_30" parent="Wrist" />
+    <boneparent bone="Finger_31" parent="Finger_30" />
+    <boneparent bone="Finger_32" parent="Finger_31" />
+    <boneparent bone="Finger_33" parent="Finger_32" />
+    <boneparent bone="Finger_40" parent="Wrist" />
+    <boneparent bone="Finger_41" parent="Finger_40" />
+    <boneparent bone="Finger_42" parent="Finger_41" />
+    <boneparent bone="Finger_43" parent="Finger_42" />
+  </bonehierarchy>
+  <animations />
+</skeleton>
