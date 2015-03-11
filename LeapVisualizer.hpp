@@ -15,6 +15,7 @@ namespace Annwvyn
 		void setHandsObjects(AnnGameObject* lhand, AnnGameObject* rhand);
 		Ogre::Matrix4 getProjectionFromCurrentPose();
 
+		static Ogre::Vector3 convert(Leap::Vector v);
 
 	private:
 		enum {left, right};
@@ -33,7 +34,9 @@ namespace Annwvyn
 		std::string getBoneName(int finger, int bone);
 
 
+
 		Ogre::Quaternion lwrist, rwrist;
+
 	};
 }
 

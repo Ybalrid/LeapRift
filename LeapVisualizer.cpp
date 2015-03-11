@@ -113,7 +113,7 @@ void LeapVisualizer::updateHandOrientation(Leap::Hand lhand, Leap::Hand rhand)
 
 
 		//Get the corresponding quaternion and apply it to the hand
-		visualHands[left]->setOrientation(Ogre::Quaternion(X,Y,Z));
+		//visualHands[left]->setOrientation(Ogre::Quaternion(X,Y,Z));
 		lwrist = Ogre::Quaternion(X,Y,Z);
 	}
 
@@ -142,7 +142,7 @@ void LeapVisualizer::updateHandOrientation(Leap::Hand lhand, Leap::Hand rhand)
 
 
 		//Get the corresponding quaternion and apply it to the hand
-		visualHands[right]->setOrientation(Ogre::Quaternion(X,Y,Z));
+		//visualHands[right]->setOrientation(Ogre::Quaternion(X,Y,Z));
 		rwrist = Ogre::Quaternion(X,Y,Z);
 	}
 		updateFingerPose(lhand, rhand);
@@ -151,62 +151,100 @@ void LeapVisualizer::updateHandOrientation(Leap::Hand lhand, Leap::Hand rhand)
 
 void LeapVisualizer::updateFingerPose(Leap::Hand lhand, Leap::Hand rhand)
 {
-	if(lhand.isValid() && visualHands[left])
+	visualHands[left]->setScale(1.5f*Ogre::Vector3::UNIT_SCALE);
+	visualHands[right]->setScale(1.5f*Ogre::Vector3::UNIT_SCALE);
+	Ogre::SkeletonInstance* ske;
+	if(!visualHands[left]->Entity()->hasSkeleton()) return;
+	ske = visualHands[left]->Entity()->getSkeleton();
+	Ogre::Bone* wrist(ske->getBone("Wrist"));
+	wrist->setManuallyControlled(true);
+	wrist->setInheritOrientation(false);
+	wrist->setOrientation(lwrist*Ogre::Quaternion(Ogre::Degree(65), Ogre::Vector3::UNIT_Y));
+
+	for(int fingerIndex(0); fingerIndex < 5; fingerIndex++)
 	{
-		//Does the model has a skeleton attached ?
-		if(visualHands[left]->Entity()->hasSkeleton())
+		for(int boneIndex(1); boneIndex < 4; boneIndex++)
 		{
-			//get the skeleton
-			Ogre::SkeletonInstance* ske = visualHands[left]->Entity()->getSkeleton();
+			Leap::Finger finger(lhand.fingers()[fingerIndex]);
+			Leap::Bone bone(finger.bone(Leap::Bone::Type(boneIndex)));
+			Ogre::Bone *b = ske->getBone(getBoneName(fingerIndex, boneIndex));
+			b->setManuallyControlled(true);
+			b->setInheritOrientation(false);
 
-			//get the 5 fingers of the hand
-			Leap::FingerList fingers = lhand.fingers();	
-			
-			Ogre::Bone* wrist = ske->getBone("Wrist");
-			wrist->setManuallyControlled(true);
-			wrist->setInheritOrientation(false);
-			wrist->setOrientation(Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::UNIT_Y) *lwrist);
-
-			//for each finger
-			for(int finger(0); finger < 5; finger++)
-			{
-				//for each finger bone
-				for(int bone = 1; bone < 4; bone++)
-				{
-					//Get the bone orientation
-					Ogre::Quaternion boneOrientation = getBoneOrientation(fingers[finger].bone(Leap::Bone::Type(bone)), true);
-					Ogre::Bone* b = ske->getBone(getBoneName(finger, bone));
-					b->setManuallyControlled(true);
-					b->setInheritOrientation(false);
-					b->setOrientation(lPose.orientation * boneOrientation);
-				}
-			}
+			Ogre::Quaternion boneOrientation(getBoneOrientation(bone, true));
+			if(fingerIndex != 0)
+			b->setOrientation(lPose.orientation
+				*boneOrientation
+				/**Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::NEGATIVE_UNIT_X)*/
+				*Ogre::Quaternion(Ogre::Degree(180), Ogre::Vector3::UNIT_Z)
+				*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::NEGATIVE_UNIT_X)
+				);
+			else
+				b->setOrientation(lPose.orientation
+				*boneOrientation
+			//	*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::UNIT_X)
+			*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::NEGATIVE_UNIT_X)
+			*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::UNIT_Y)
+				);
 
 		}
 	}
+
+	if(!visualHands[right]->Entity()->hasSkeleton()) return;
+
+	ske = visualHands[right]->Entity()->getSkeleton();
+	wrist=ske->getBone("Wrist");
+	wrist->setManuallyControlled(true);
+	wrist->setInheritOrientation(false);
+	wrist->setOrientation(rwrist*Ogre::Quaternion(Ogre::Degree(65), Ogre::Vector3::NEGATIVE_UNIT_Y));
+
+	for(int fingerIndex(0); fingerIndex < 5; fingerIndex++)
+	{
+		for(int boneIndex(1); boneIndex < 4; boneIndex++)
+		{
+			Leap::Finger finger(rhand.fingers()[fingerIndex]);
+			Leap::Bone bone(finger.bone(Leap::Bone::Type(boneIndex)));
+			Ogre::Bone *b = ske->getBone(getBoneName(fingerIndex, boneIndex));
+			b->setManuallyControlled(true);
+			b->setInheritOrientation(false);
+
+			Ogre::Quaternion boneOrientation(getBoneOrientation(bone, false));
+			if(fingerIndex != 0)
+			b->setOrientation(lPose.orientation
+				*boneOrientation
+				/**Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::NEGATIVE_UNIT_X)*/
+				 *Ogre::Quaternion(Ogre::Degree(180), Ogre::Vector3::UNIT_Z)
+				 *Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::NEGATIVE_UNIT_X)
+				);
+			else
+				b->setOrientation(lPose.orientation
+				*boneOrientation
+								 *Ogre::Quaternion(Ogre::Degree(180), Ogre::Vector3::UNIT_Z)
+				*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::NEGATIVE_UNIT_X)
+			*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::UNIT_Y)
+				);
+
+		}
+	}
+
 }
 
 Ogre::Quaternion LeapVisualizer::getBoneOrientation(Leap::Bone bone, bool isLeft)
 {
+	Leap::Matrix rotationMatrix(bone.basis());
 
-	//Get the "basis" reference
-	Leap::Vector y = bone.basis().yBasis;
-	Leap::Vector z = bone.basis().zBasis;
-
+	Leap::Vector xBasis = rotationMatrix.xBasis;
+	Leap::Vector yBasis = rotationMatrix.yBasis;
+	Leap::Vector zBasis = rotationMatrix.zBasis;
 	if(isLeft)
-		z *= -1;
-	
-	Ogre::Vector3 worldY = Ogre::Vector3(-y.x, -y.z, -y.y);
-	Ogre::Vector3 worldZ = Ogre::Vector3(-z.x, -z.z, -z.y);
-	Ogre::Vector3 worldX = worldY.crossProduct(worldZ);
-	
-	worldX.normalise();
-	worldY.normalise();
-	worldZ.normalise();
+		xBasis = - xBasis;
 
-	return Ogre::Quaternion(worldX, worldZ, -worldY);
+	xBasis = Leap::Vector(-xBasis.x, -xBasis.z, -xBasis.y);
+	yBasis = Leap::Vector(-yBasis.x, -yBasis.z, -yBasis.y);
+	zBasis = Leap::Vector(-zBasis.x, -zBasis.z, -zBasis.y);
 
-	return Ogre::Quaternion::IDENTITY;
+	return Ogre::Quaternion(convert(xBasis).normalisedCopy(), convert(yBasis).normalisedCopy(), convert(zBasis).normalisedCopy());
+	
 }
 
 std::string LeapVisualizer::getBoneName(int finger, int bone)
@@ -217,4 +255,9 @@ std::string LeapVisualizer::getBoneName(int finger, int bone)
 	ss << bone - 1;
 
 	return ss.str();
+}
+
+Ogre::Vector3 LeapVisualizer::convert(Leap::Vector v)
+{
+	return Ogre::Vector3(v.x, v.y, v.z);
 }
