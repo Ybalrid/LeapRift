@@ -20,6 +20,8 @@ LeapVisualizer::LeapVisualizer()
 
 	visualHands[left] = NULL;
 	visualHands[right] = NULL;
+	lSizeApplied = false;
+	rSizeApplied = false;
 }
 
 void LeapVisualizer::setHandsObjects(AnnGameObject* lhand, AnnGameObject* rhand)
@@ -51,8 +53,33 @@ Ogre::Matrix4 LeapVisualizer::getProjectionFromCurrentPose()
 	return leapWorld * scalling;
 }
 
+void LeapVisualizer::manageSize(Leap::Hand lhand, Leap::Hand rhand)
+{
+	Ogre::Real modelPalmWidth = 0.04;
+	if(!lSizeApplied)
+		if(lhand.isValid() && visualHands[left])
+		{
+			Ogre::Vector3 mesuredSize = (lhand.palmWidth()/1000) * Ogre::Vector3::UNIT_SCALE;
+
+			visualHands[left]->setScale(mesuredSize*(visualHands[left]->node()->getScale()/modelPalmWidth));
+
+			lSizeApplied = true;
+		}
+
+	if(!rSizeApplied)
+		if(rhand.isValid() && visualHands[right])
+		{
+			Ogre::Vector3 mesuredSize = (rhand.palmWidth()/1000) * Ogre::Vector3::UNIT_SCALE;
+
+			visualHands[right]->setScale(mesuredSize*(visualHands[right]->node()->getScale()/modelPalmWidth));
+
+			rSizeApplied = true;
+		}
+}
+
 void LeapVisualizer::updateHandPosition(Leap::Hand lhand, Leap::Hand rhand)
 {
+	manageSize(lhand, rhand);
 	if(lhand.isValid() && visualHands[left])
 	{
 		visualHands[left]->node()->setVisible(true);
@@ -151,8 +178,8 @@ void LeapVisualizer::updateHandOrientation(Leap::Hand lhand, Leap::Hand rhand)
 
 void LeapVisualizer::updateFingerPose(Leap::Hand lhand, Leap::Hand rhand)
 {
-	visualHands[left]->setScale(1.5f*Ogre::Vector3::UNIT_SCALE);
-	visualHands[right]->setScale(1.5f*Ogre::Vector3::UNIT_SCALE);
+	/*visualHands[left]->setScale(1.5f*Ogre::Vector3::UNIT_SCALE);
+	visualHands[right]->setScale(1.5f*Ogre::Vector3::UNIT_SCALE);*/
 	Ogre::SkeletonInstance* ske;
 	if(!visualHands[left]->Entity()->hasSkeleton()) return;
 	ske = visualHands[left]->Entity()->getSkeleton();

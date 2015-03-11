@@ -45,10 +45,29 @@ AnnMain()
 
 
 	AnnLightObject* l (GameEngine->addLight());
-	l->setPosition(0,0,-10);
+	l->setPosition(0,0,0);
 
-	Suzanne->setPos(0,0,8);
+	AnnLightObject* sun (GameEngine->addLight());
+	l->setType(Ogre::Light::LightTypes::LT_DIRECTIONAL);
+	l->setDirection(Ogre::Vector3(-1,-1,-1));
 
+	Suzanne->setPos(0,0,9);
+
+	AnnGameObject* House = GameEngine->createGameObject("house.mesh");
+	House->setPos(0,-1.65,0);
+
+	House->setUpPhysics();
+
+
+	AnnGameObject* BasePlane = GameEngine->createGameObject("Plane.mesh");
+	BasePlane->setPos(0, -1.65, 11);
+	BasePlane->setUpPhysics();
+	GameEngine->setDebugPhysicState(true);
+
+
+	GameEngine->initPlayerPhysics();
+
+	GameEngine->resetOculusOrientation();
 	while(!GameEngine->requestStop())
 	{
 		leap.pollData();

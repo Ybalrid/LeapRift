@@ -33,6 +33,10 @@ namespace Annwvyn
 		Ogre::Quaternion getBoneOrientation(Leap::Bone bone, bool isLeft = false);
 		std::string getBoneName(int finger, int bone);
 
+		void manageSize(Leap::Hand l, Leap::Hand r);
+
+		bool lSizeApplied;
+		bool rSizeApplied;
 
 
 		Ogre::Quaternion lwrist, rwrist;
