@@ -143,7 +143,7 @@ void LeapVisualizer::updateHandOrientation(Leap::Hand lhand, Leap::Hand rhand)
 
 		//Get the corresponding quaternion and apply it to the hand
 		visualHands[right]->setOrientation(Ogre::Quaternion(X,Y,Z));
-		lwrist = Ogre::Quaternion(X,Y,Z);
+		rwrist = Ogre::Quaternion(X,Y,Z);
 	}
 		updateFingerPose(lhand, rhand);
 }
@@ -163,7 +163,9 @@ void LeapVisualizer::updateFingerPose(Leap::Hand lhand, Leap::Hand rhand)
 			Leap::FingerList fingers = lhand.fingers();	
 			
 			Ogre::Bone* wrist = ske->getBone("Wrist");
+			wrist->setManuallyControlled(true);
 			wrist->setInheritOrientation(false);
+			wrist->setOrientation(Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::UNIT_Y) *lwrist);
 
 			//for each finger
 			for(int finger(0); finger < 5; finger++)
@@ -176,7 +178,7 @@ void LeapVisualizer::updateFingerPose(Leap::Hand lhand, Leap::Hand rhand)
 					Ogre::Bone* b = ske->getBone(getBoneName(finger, bone));
 					b->setManuallyControlled(true);
 					b->setInheritOrientation(false);
-					b->setOrientation(boneOrientation);
+					b->setOrientation(lPose.orientation * boneOrientation);
 				}
 			}
 
