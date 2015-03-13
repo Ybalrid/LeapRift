@@ -1,0 +1,38 @@
+#include "ObjectSpawner.hpp"
+
+ObjectSpawner::ObjectSpawner(AnnEngine* e)
+{
+	assert(e);
+	engine = e;
+	spawnPoint = Ogre::Vector3(0, 0, 0);
+}
+
+ObjectSpawner::~ObjectSpawner()
+{
+	//stuff...
+}
+
+void ObjectSpawner::setSpawnPoint(Ogre::Vector3 point)
+{
+	spawnPoint = point;
+}
+
+std::vector<GrabableObject*> ObjectSpawner::getList()
+{
+	return objectList;
+}
+
+void ObjectSpawner::spawn()
+{
+	GrabableObject* tmp = 
+		(GrabableObject*) engine->createGameObject(entityName.c_str(), new GrabableObject);
+	
+	objectList.push_back(tmp);
+	tmp->setPos(spawnPoint);
+	tmp->setUpPhysics(0.1, sphereShape);
+}
+
+void ObjectSpawner::setEntityName(std::string name)
+{
+	entityName = name;
+}
