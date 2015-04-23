@@ -74,7 +74,7 @@ AnnMain()
 	//GameEngine->setDebugPhysicState(true);
 
 	AnnGameObject* Table = GameEngine->createGameObject("Table.mesh");
-	Table->setPos(0.15,-.08,11);
+	Table->setPos(0.15,-.08,10.5);
 	Table->setUpBullet();
 
 	GameEngine->getPlayer()->setOrientation(Ogre::Euler(Ogre::Real(M_PI)));
@@ -87,7 +87,7 @@ AnnMain()
 
 	
 	ObjectSpawner spawner(GameEngine);
-	spawner.setSpawnPoint(Ogre::Vector3(0.15, 0.6, 10.7));
+	spawner.setSpawnPoint(Ogre::Vector3(0.15, 0.6, 10.7-.5));
 	spawner.setEntityName("Ball.mesh");
 
 	spawner.spawn();
@@ -114,8 +114,13 @@ AnnMain()
 	lboundingBox->setUpPhysics(0, boxShape, false);
 	rboundingBox->setUpPhysics(0, boxShape, false);
 
+	float lastTime;
+	float currentTime;
+
 	while(!GameEngine->requestStop())
 	{
+		currentTime = GameEngine->getTimeFromStartUp();
+
 		leap.pollData();
 		//gui.setText(leap.getLogMessage());
 		//gui.update();
@@ -136,7 +141,11 @@ AnnMain()
 		if(GameEngine->isKeyDown(OIS::KC_F12))
 			GameEngine->resetOculusOrientation();
 		if(GameEngine->isKeyDown(OIS::KC_SPACE))
-			spawner.spawn();
+			if((currentTime - lastTime) >= 500)
+			{
+				lastTime = currentTime;
+				spawner.spawn();
+			}
 
 		if(GameEngine->isKeyDown(OIS::KC_RETURN))
 			spawner.reset();
