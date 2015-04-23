@@ -4,7 +4,7 @@ using namespace Annwvyn;
 
 LeapVisualizer::LeapVisualizer()
 {
-	LeapEyeOffset = Ogre::Vector3(0, 0, -0.08);
+	LeapEyeOffset = Ogre::Vector3(0, 0, -0.08f);
 
 	leapOculus = Ogre::Matrix4
 		(-1, 0, 0, LeapEyeOffset.x,
@@ -13,9 +13,9 @@ LeapVisualizer::LeapVisualizer()
 		0, 0, 0, 1);
 
 	scalling = Ogre::Matrix4
-		(0.001, 0, 0, 0,
-		0, 0.001, 0, 0,
-		0, 0, 0.001, 0,
+		(0.001f, 0, 0, 0,
+		0, 0.001f, 0, 0,
+		0, 0, 0.001f, 0,
 		0, 0, 0, 1);
 
 	visualHands[left] = NULL;
@@ -34,8 +34,8 @@ void LeapVisualizer::setPov(OgrePose pose)
 {
 	//Get a matrix4 representation of a pose.position vector
 	Ogre::Matrix4 translation = Ogre::Matrix4
-		(1, 0, 0, pose.position.x,
-		0, 1, 0,  pose.position.y,
+		(1, 0, 0,  pose.position.x,
+		0, 1, 0,   pose.position.y,
 		0, 0, 1,   pose.position.z, 
 		0, 0, 0, 1);
 
@@ -213,7 +213,6 @@ void LeapVisualizer::updateFingerPose(Leap::Hand lhand, Leap::Hand rhand)
 			*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::NEGATIVE_UNIT_X)
 			*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::UNIT_Y)
 				);
-
 		}
 	}
 
@@ -246,14 +245,12 @@ void LeapVisualizer::updateFingerPose(Leap::Hand lhand, Leap::Hand rhand)
 			else
 				b->setOrientation(lPose.orientation
 				*boneOrientation
-								 *Ogre::Quaternion(Ogre::Degree(180), Ogre::Vector3::UNIT_Z)
+				*Ogre::Quaternion(Ogre::Degree(180), Ogre::Vector3::UNIT_Z)
 				*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::NEGATIVE_UNIT_X)
-			*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::UNIT_Y)
+				*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::UNIT_Y)
 				);
-
 		}
 	}
-
 }
 
 Ogre::Quaternion LeapVisualizer::getBoneOrientation(Leap::Bone bone, bool isLeft)
@@ -271,7 +268,6 @@ Ogre::Quaternion LeapVisualizer::getBoneOrientation(Leap::Bone bone, bool isLeft
 	zBasis = Leap::Vector(-zBasis.x, -zBasis.z, -zBasis.y);
 
 	return Ogre::Quaternion(convert(xBasis).normalisedCopy(), convert(yBasis).normalisedCopy(), convert(zBasis).normalisedCopy());
-	
 }
 
 std::string LeapVisualizer::getBoneName(int finger, int bone)
