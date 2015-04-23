@@ -36,3 +36,12 @@ void ObjectSpawner::setEntityName(std::string name)
 {
 	entityName = name;
 }
+
+void ObjectSpawner::reset()
+{
+	for(std::vector<GrabableObject*>::iterator it = objectList.begin();
+		it != objectList.end();
+		++it)
+		engine->destroyGameObject(*it);
+	objectList.clear();
+}

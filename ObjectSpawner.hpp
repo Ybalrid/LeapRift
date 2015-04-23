@@ -20,6 +20,8 @@ public:
 
 	void spawn();
 
+	void reset();
+
 private:
 	Ogre::Vector3 spawnPoint;
 	std::vector<GrabableObject*> objectList;

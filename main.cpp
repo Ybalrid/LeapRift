@@ -138,6 +138,9 @@ AnnMain()
 		if(GameEngine->isKeyDown(OIS::KC_SPACE))
 			spawner.spawn();
 
+		if(GameEngine->isKeyDown(OIS::KC_RETURN))
+			spawner.reset();
+
 		GameEngine->refresh();
 	}
 
