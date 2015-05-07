@@ -30,6 +30,9 @@
     <ClInclude Include="LevelManager.hpp" />
     <ClInclude Include="ObjectSpawner.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FF00A220-BA2F-45E4-8335-A7ACCACD0F1B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>

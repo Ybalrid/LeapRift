@@ -24,6 +24,32 @@ using namespace std;
 using namespace Annwvyn; //All Annwvyn components are here 
 
 
+///Debuging tool
+class LevelManagerListener : LISTENER
+{
+public:
+	LevelManagerListener(AnnPlayer* p, LevelManager* levelManager) : constructListener(p),
+		lm(levelManager)
+	{
+	}
+
+	void KeyEvent(AnnKeyEvent e)
+	{
+		if(e.isPressed()  && e.getKey() == Annwvyn::KeyCode::enter)
+		{
+			lm->unloadCurrentLevel();
+		}
+	}
+	
+
+	void MouseEvent(AnnMouseEvent e){}
+	void StickEvent(AnnStickEvent e){}
+
+private:
+	LevelManager* lm;
+};
+
+
 AnnMain()
 {
 	AnnEngine* GameEngine = new AnnEngine("My Game");
@@ -84,6 +110,8 @@ AnnMain()
 
 	lm->addLevel(new Demo0);
 	lm->jumpToFirstLevel();
+
+	GameEngine->getEventManager()->addListener(new LevelManagerListener(GameEngine->getPlayer(), lm));
 
 	do
 	{

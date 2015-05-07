@@ -1,7 +1,7 @@
 #ifndef LEVELMANAGER
 #define LEVELMANAGER
 
-#include <Annwvyn.h>
+//#include <Annwvyn.h>
 
 #include "AbstractLevel.hpp"
 
@@ -24,6 +24,8 @@ namespace Annwvyn
 		void jumpToFirstLevel();
 
 		void tick();
+
+		void unloadCurrentLevel();
 
 	private:
 		std::vector<AbstractLevel*> levelList;

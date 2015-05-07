@@ -17,7 +17,7 @@ namespace Annwvyn
 		///Destroy the level
 		virtual ~AbstractLevel();
 		virtual void unload();
-
+			
 		virtual void runLogic() =0;
 
 	protected:

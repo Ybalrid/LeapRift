@@ -47,3 +47,9 @@ void LevelManager::tick()
 {
 	if(current) current->runLogic();
 }
+
+void LevelManager::unloadCurrentLevel()
+{
+	if(current) current->unload();
+	current = NULL;
+}
