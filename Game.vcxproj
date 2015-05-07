@@ -18,11 +18,13 @@
     <ClCompile Include="ObjectSpawner.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractLevel.hpp" />
     <ClInclude Include="DebugGUI.hpp" />
     <ClInclude Include="GrabableObject.hpp" />
     <ClInclude Include="HandObject.hpp" />
     <ClInclude Include="LeapIntegration.hpp" />
     <ClInclude Include="LeapVisualizer.hpp" />
+    <ClInclude Include="LevelManager.hpp" />
     <ClInclude Include="ObjectSpawner.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
