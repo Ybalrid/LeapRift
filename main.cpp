@@ -1,3 +1,6 @@
+#define M_PI 3.14159265358979323846
+
+
 //Includes
 #include <Annwvyn.h>
 
@@ -11,7 +14,10 @@
 #include "ObjectSpawner.hpp"
 #include "HandObject.hpp"
 
-#define M_PI 3.14159265358979323846
+
+#include "LevelManager.hpp"
+#include "Demo0.hpp"
+
 
 //Namespaces
 using namespace std;
@@ -44,29 +50,7 @@ AnnMain()
 	AnnLightObject* sun (GameEngine->addLight());
 	l->setType(Ogre::Light::LightTypes::LT_DIRECTIONAL);
 	l->setDirection(Ogre::Vector3(-1,-1,-1));
-
-	AnnGameObject* House = GameEngine->createGameObject("house.mesh");
-	House->setPos(0.15,-.65,12);
-
-	House->setUpPhysics();
-
-	AnnGameObject* BasePlane = GameEngine->createGameObject("Plane.mesh");
-	BasePlane->setPos(0, -.60, 11);
-	BasePlane->setUpPhysics();
-
-	AnnGameObject* Table = GameEngine->createGameObject("Table.mesh");
-	Table->setPos(0.15,-.08,10.5);
-	Table->setUpBullet();
-
-	GameEngine->getPlayer()->setOrientation(Ogre::Euler(Ogre::Real(M_PI)));
-	GameEngine->initPlayerPhysics();
-	GameEngine->resetOculusOrientation();
-	GameEngine->setSkyDomeMaterial(true, "Sky/dome1");
-
-	GameEngine->getPlayer()->setOrientation(Ogre::Euler(Ogre::Real(M_PI)));
-	GameEngine->resetOculusOrientation();
-
-
+	/*
 	AnnGameObject* lboundingBox;
 	AnnGameObject* rboundingBox;
 
@@ -80,28 +64,36 @@ AnnMain()
 
 	lboundingBox->setUpPhysics(0, boxShape, false);
 	rboundingBox->setUpPhysics(0, boxShape, false);
-	
+
 	lboundingBox->setInvisible();
 	rboundingBox->setInvisible();
 	float lastTime;
 	float currentTime;
+	*/
 
+	GameEngine->getPlayer()->setOrientation(Ogre::Euler(Ogre::Real(M_PI)));
+	GameEngine->initPlayerPhysics();
+	GameEngine->resetOculusOrientation();
+	GameEngine->setSkyDomeMaterial(true, "Sky/dome1");
+
+	GameEngine->getPlayer()->setOrientation(Ogre::Euler(Ogre::Real(M_PI)));
+	GameEngine->resetOculusOrientation();
 	GameEngine->useDefaultEventListener();
+
+	LevelManager* lm = new LevelManager;
+
+	lm->addLevel(new Demo0);
+	lm->jumpToFirstLevel();
 
 	do
 	{
-		currentTime = GameEngine->getTimeFromStartUp();
-
 		leap.pollData();
 		visualizer.setPov(GameEngine->getPoseFromOOR());
 		visualizer.updateHandPosition(leap.getLeftHand(), leap.getRightHand());
-		lboundingBox->setPos(leftHand->pos());
-		rboundingBox->setPos(rightHand->pos());
-		lboundingBox->setOrientation(leftHand->getWristOrientation());
-		rboundingBox->setOrientation(rightHand->getWristOrientation());
+
+		lm->tick();
 
 	}while(GameEngine->refresh());
-	//delete GameEngine;
 	return 0;
 }
 

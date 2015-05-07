@@ -11,8 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AbstractLevel.cpp" />
     <ClCompile Include="LeapIntegration.cpp" />
     <ClCompile Include="LeapVisualizer.cpp" />
+    <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GrabableObject.cpp" />
     <ClCompile Include="ObjectSpawner.cpp" />
@@ -20,6 +22,7 @@
   <ItemGroup>
     <ClInclude Include="AbstractLevel.hpp" />
     <ClInclude Include="DebugGUI.hpp" />
+    <ClInclude Include="Demo0.hpp" />
     <ClInclude Include="GrabableObject.hpp" />
     <ClInclude Include="HandObject.hpp" />
     <ClInclude Include="LeapIntegration.hpp" />

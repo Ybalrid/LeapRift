@@ -11,18 +11,17 @@ namespace Annwvyn
 	public:
 		///Construct the level 
 		AbstractLevel();
+
+		virtual void load() = 0;
+
 		///Destroy the level
 		virtual ~AbstractLevel();
-					
+		virtual void unload();
 
 		virtual void runLogic() =0;
 
 	protected:
 		AnnGameObjectVect levelContent;
-
-	private:
-		friend class LevelManager;
-		int id;
 	};
 }
 #endif
