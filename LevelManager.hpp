@@ -23,7 +23,7 @@ namespace Annwvyn
 		
 		void jumpToFirstLevel();
 
-		void tick();
+		void step();
 
 		void unloadCurrentLevel();
 

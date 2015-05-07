@@ -1,9 +1,7 @@
 #define M_PI 3.14159265358979323846
 
-
 //Includes
 #include <Annwvyn.h>
-
 
 #include "LeapIntegration.hpp"
 #include "LeapVisualizer.hpp"
@@ -14,15 +12,12 @@
 #include "ObjectSpawner.hpp"
 #include "HandObject.hpp"
 
-
 #include "LevelManager.hpp"
 #include "Demo0.hpp"
-
 
 //Namespaces
 using namespace std;
 using namespace Annwvyn; //All Annwvyn components are here 
-
 
 ///Debuging tool
 class LevelManagerListener : LISTENER
@@ -36,12 +31,9 @@ public:
 	void KeyEvent(AnnKeyEvent e)
 	{
 		if(e.isPressed()  && e.getKey() == Annwvyn::KeyCode::enter)
-		{
 			lm->unloadCurrentLevel();
-		}
 	}
 	
-
 	void MouseEvent(AnnMouseEvent e){}
 	void StickEvent(AnnStickEvent e){}
 
@@ -76,6 +68,23 @@ AnnMain()
 	AnnLightObject* sun (GameEngine->addLight());
 	l->setType(Ogre::Light::LightTypes::LT_DIRECTIONAL);
 	l->setDirection(Ogre::Vector3(-1,-1,-1));
+	
+	GameEngine->getPlayer()->setOrientation(Ogre::Euler(Ogre::Real(M_PI)));
+	GameEngine->initPlayerPhysics();
+	GameEngine->resetOculusOrientation();
+	GameEngine->setSkyDomeMaterial(true, "Sky/dome1");
+
+	GameEngine->getPlayer()->setOrientation(Ogre::Euler(Ogre::Real(M_PI)));
+	GameEngine->resetOculusOrientation();
+	GameEngine->useDefaultEventListener();
+
+	LevelManager* lm = new LevelManager;
+
+	lm->addLevel(new Demo0);
+	lm->jumpToFirstLevel();
+
+	GameEngine->getEventManager()->addListener(new LevelManagerListener(GameEngine->getPlayer(), lm));
+
 	/*
 	AnnGameObject* lboundingBox;
 	AnnGameObject* rboundingBox;
@@ -97,29 +106,13 @@ AnnMain()
 	float currentTime;
 	*/
 
-	GameEngine->getPlayer()->setOrientation(Ogre::Euler(Ogre::Real(M_PI)));
-	GameEngine->initPlayerPhysics();
-	GameEngine->resetOculusOrientation();
-	GameEngine->setSkyDomeMaterial(true, "Sky/dome1");
-
-	GameEngine->getPlayer()->setOrientation(Ogre::Euler(Ogre::Real(M_PI)));
-	GameEngine->resetOculusOrientation();
-	GameEngine->useDefaultEventListener();
-
-	LevelManager* lm = new LevelManager;
-
-	lm->addLevel(new Demo0);
-	lm->jumpToFirstLevel();
-
-	GameEngine->getEventManager()->addListener(new LevelManagerListener(GameEngine->getPlayer(), lm));
-
 	do
 	{
 		leap.pollData();
 		visualizer.setPov(GameEngine->getPoseFromOOR());
 		visualizer.updateHandPosition(leap.getLeftHand(), leap.getRightHand());
 
-		lm->tick();
+		lm->step();
 
 	}while(GameEngine->refresh());
 	return 0;

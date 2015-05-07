@@ -20,8 +20,6 @@ void LevelManager::jump(size_t levelId)
 	current->load();
 }
 
-
-
 void LevelManager::jump(AbstractLevel* level)
 {
 	for(size_t i(0); i < levelList.size(); i++)
@@ -43,7 +41,7 @@ void LevelManager::jumpToFirstLevel()
 	jump(level_id(0));
 }
 
-void LevelManager::tick()
+void LevelManager::step()
 {
 	if(current) current->runLogic();
 }
