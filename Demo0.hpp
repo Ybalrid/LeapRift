@@ -1,5 +1,6 @@
 #ifndef DEMO0
 #define DEMO0
+#define M_PI 3.14159265358979323846
 #include "AbstractLevel.hpp"
 
 using namespace Annwvyn;
@@ -29,6 +30,10 @@ public:
 		Table->setUpBullet();
 
 		levelContent.push_back(Table);
+
+		GameEngine->getPlayer()->setPosition(Ogre::Vector3(0,1,10));
+		GameEngine->getPlayer()->setOrientation(Ogre::Euler(Ogre::Real(M_PI)));
+		GameEngine->resetPlayerPhysics();
 	}
 
 	virtual void runLogic()

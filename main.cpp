@@ -1,4 +1,3 @@
-#define M_PI 3.14159265358979323846
 
 //Includes
 #include <Annwvyn.h>
@@ -32,6 +31,10 @@ public:
 	{
 		if(e.isPressed()  && e.getKey() == Annwvyn::KeyCode::enter)
 			lm->unloadCurrentLevel();
+		if(e.isPressed()  && e.getKey() == Annwvyn::KeyCode::back)
+			lm->jumpToFirstLevel();
+
+
 	}
 	
 	void MouseEvent(AnnMouseEvent e){}
@@ -52,15 +55,15 @@ AnnMain()
 
 	GameEngine->oculusInit();
 
-	AnnLeapInterface leap;
+	GameEngine->setAmbiantLight(Ogre::ColourValue(.2f,.2f,.2f));
+	GameEngine->setSkyDomeMaterial(true, "Sky/dome1");
+	GameEngine->initPlayerPhysics();
 
-	//create hands objects:
+	AnnLeapInterface leap;
 	HandObject* leftHand = (HandObject*) GameEngine->createGameObject("hand.left.mesh", new HandObject);
 	HandObject* rightHand = (HandObject*) GameEngine->createGameObject("hand.right.mesh", new HandObject);
-
 	LeapVisualizer visualizer;
 	visualizer.setHandsObjects(leftHand, rightHand);
-	GameEngine->setAmbiantLight(Ogre::ColourValue(.2f,.2f,.2f));
 
 	AnnLightObject* l (GameEngine->addLight());
 	l->setPosition(0,0,0);
@@ -69,42 +72,19 @@ AnnMain()
 	l->setType(Ogre::Light::LightTypes::LT_DIRECTIONAL);
 	l->setDirection(Ogre::Vector3(-1,-1,-1));
 	
-	GameEngine->getPlayer()->setOrientation(Ogre::Euler(Ogre::Real(M_PI)));
-	GameEngine->initPlayerPhysics();
-	GameEngine->resetOculusOrientation();
-	GameEngine->setSkyDomeMaterial(true, "Sky/dome1");
-
-	GameEngine->getPlayer()->setOrientation(Ogre::Euler(Ogre::Real(M_PI)));
-	GameEngine->resetOculusOrientation();
-	GameEngine->useDefaultEventListener();
-
 	LevelManager* lm = new LevelManager;
 
 	lm->addLevel(new Demo0);
 	lm->jumpToFirstLevel();
 
-	GameEngine->getEventManager()->addListener(new LevelManagerListener(GameEngine->getPlayer(), lm));
-
 	/*
-	AnnGameObject* lboundingBox;
-	AnnGameObject* rboundingBox;
-
-	lboundingBox = GameEngine->createGameObject("Box.mesh");
-	rboundingBox = GameEngine->createGameObject("Box.mesh");
-
-	Ogre::Vector3 size(0.25,0.02,0.15);
-
-	lboundingBox->setScale(size);
-	rboundingBox->setScale(size);
-
-	lboundingBox->setUpPhysics(0, boxShape, false);
-	rboundingBox->setUpPhysics(0, boxShape, false);
-
-	lboundingBox->setInvisible();
-	rboundingBox->setInvisible();
-	float lastTime;
-	float currentTime;
+	//create hands objects:
+	GameEngine->getPlayer()->setOrientation(Ogre::Euler(Ogre::Real(M_PI)));
+	GameEngine->resetOculusOrientation();
 	*/
+
+	GameEngine->useDefaultEventListener();
+	GameEngine->getEventManager()->addListener(new LevelManagerListener(GameEngine->getPlayer(), lm));
 
 	do
 	{
