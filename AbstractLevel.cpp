@@ -16,6 +16,7 @@ AbstractLevel::~AbstractLevel()
 
 void AbstractLevel::unload()
 {
+	AnnEngine::Instance()->removeSkyDome();
 	AnnGameObjectVect::iterator it;
 	for(it = levelContent.begin(); it != levelContent.end(); ++it)
 		AnnEngine::Instance()->destroyGameObject(*it);

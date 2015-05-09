@@ -1,4 +1,3 @@
-
 //Includes
 #include <Annwvyn.h>
 
@@ -33,8 +32,6 @@ public:
 			lm->unloadCurrentLevel();
 		if(e.isPressed()  && e.getKey() == Annwvyn::KeyCode::back)
 			lm->jumpToFirstLevel();
-
-
 	}
 	
 	void MouseEvent(AnnMouseEvent e){}
@@ -56,7 +53,6 @@ AnnMain()
 	GameEngine->oculusInit();
 
 	GameEngine->setAmbiantLight(Ogre::ColourValue(.2f,.2f,.2f));
-	GameEngine->setSkyDomeMaterial(true, "Sky/dome1");
 	GameEngine->initPlayerPhysics();
 
 	AnnLeapInterface leap;
@@ -76,12 +72,6 @@ AnnMain()
 
 	lm->addLevel(new Demo0);
 	lm->jumpToFirstLevel();
-
-	/*
-	//create hands objects:
-	GameEngine->getPlayer()->setOrientation(Ogre::Euler(Ogre::Real(M_PI)));
-	GameEngine->resetOculusOrientation();
-	*/
 
 	GameEngine->useDefaultEventListener();
 	GameEngine->getEventManager()->addListener(new LevelManagerListener(GameEngine->getPlayer(), lm));
