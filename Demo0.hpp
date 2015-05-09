@@ -11,7 +11,7 @@ public:
 	virtual void load()
 	{
 		AnnEngine* GameEngine = AnnEngine::Instance();
-		GameEngine->log("Demo0 level");
+		GameEngine->log("Demo0 level loaded");
 		AnnGameObject* House = GameEngine->createGameObject("house.mesh");
 		House->setPos(0.15,-.65,12);
 

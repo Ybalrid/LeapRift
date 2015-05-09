@@ -95,6 +95,7 @@ AnnMain()
 		lm->step();
 
 	}while(GameEngine->refresh());
+	delete lm;
 	return 0;
 }
 

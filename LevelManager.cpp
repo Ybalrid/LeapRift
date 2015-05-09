@@ -1,14 +1,20 @@
 #include "LevelManager.hpp"
-
+#include <AnnEngine.hpp>
 using namespace Annwvyn;
 
 LevelManager::LevelManager():
 	current(NULL)
 {
+	AnnEngine::Instance()->log("Level Manager created");
 }
 
 LevelManager::~LevelManager()
 {
+	AnnEngine::Instance()->log("Deleting the Level Manager. Destroing every level known by the Level Manager before.");
+	//clear the levels
+	std::vector<AbstractLevel*>::iterator it;
+	for(it = levelList.begin(); it != levelList.end(); it++)
+		delete *it;
 }
 
 void LevelManager::jump(size_t levelId)
