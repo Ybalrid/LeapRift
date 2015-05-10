@@ -115,6 +115,10 @@
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
+    <PreBuildEvent>
+      <Command>copy %AnnwvynSDK%\Annwvyn\lib\Annwvyn.dll .  /Y
+copy %AnnwvynSDK%\Annwvyn\lib\Annwvyn.pdb .  /Y</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
