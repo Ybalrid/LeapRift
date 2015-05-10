@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="GrabableObject.cpp" />
+    <ClCompile Include="ObjectSpawner.cpp" />
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>LevelSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractLevel.cpp">
+      <Filter>LevelSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="LeapIntegration.cpp">
+      <Filter>LeapSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="LeapVisualizer.cpp">
+      <Filter>LeapSystem</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DebugGUI.hpp" />
+    <ClInclude Include="GrabableObject.hpp" />
+    <ClInclude Include="ObjectSpawner.hpp" />
+    <ClInclude Include="LevelManager.hpp">
+      <Filter>LevelSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractLevel.hpp">
+      <Filter>LevelSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="LeapIntegration.hpp">
+      <Filter>LeapSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="LeapVisualizer.hpp">
+      <Filter>LeapSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="HandObject.hpp">
+      <Filter>LeapSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Demo0.hpp">
+      <Filter>DemoLevels</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="LevelSystem">
+      <UniqueIdentifier>{535e7c26-b412-4665-83d0-e433f6f8519b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LeapSystem">
+      <UniqueIdentifier>{c71a1a16-e423-4142-9183-867dcdfc892b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DemoLevels">
+      <UniqueIdentifier>{921cc025-a059-4741-a10b-573b52572b89}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
