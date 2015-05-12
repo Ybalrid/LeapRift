@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Annwvyn::AbstractLevel">
+    <Position X="4.5" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>BIAAAAAAAMAAAAAAAAAAAAAACEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AbstractLevel.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Annwvyn::AnnGameObject" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ESBgCEyAAQkQQQAhIBIABYCQIBFsEEAjIBUBCBwADAg=</HashCode>
+      <FileName>c:\oculus\annwvynsdk\annwvyn\include\anngameobject.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GrabableObject">
+    <Position X="4.75" Y="1.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAQAAAAAAAAAAAQAAQAAAAAAA=</HashCode>
+      <FileName>GrabableObject.hpp</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="holder" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Demo0">
+    <Position X="5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Demo0.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Annwvyn::AnnLeapInterface">
+    <Position X="12" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>RIABAUIAEABAEAEAAIBAAQAAAAAAAAAAAAAAgAQAAAA=</HashCode>
+      <FileName>LeapIntegration.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Annwvyn::LeapVisualizer">
+    <Position X="15.25" Y="0.5" Width="4.75" />
+    <NestedTypes>
+      <Enum Name="Annwvyn::LeapVisualizer::__unnamed_enum_000b_1" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>LeapVisualizer.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>CMAACACAAAgAjAABAMAAAAAAAAAAAiARAAgAICCAAAQ=</HashCode>
+      <FileName>LeapVisualizer.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Annwvyn::LevelManager">
+    <Position X="0.5" Y="4.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AEACAAEAAAgAAAAAAAAgAAAAiAAgAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>LevelManager.hpp</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="current" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="HandObject">
+    <Position X="8.5" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>HandObject.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectSpawner">
+    <Position X="12.25" Y="5.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAEQAEAAAAAAAAAAAAQQARAAgAAAAAAAAAAwQAAAA=</HashCode>
+      <FileName>ObjectSpawner.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
