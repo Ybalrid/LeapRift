@@ -39,6 +39,7 @@
     <ClInclude Include="Demo0.hpp">
       <Filter>DemoLevels</Filter>
     </ClInclude>
+    <ClInclude Include="Demo1.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LevelSystem">
@@ -50,5 +51,8 @@
     <Filter Include="DemoLevels">
       <UniqueIdentifier>{921cc025-a059-4741-a10b-573b52572b89}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

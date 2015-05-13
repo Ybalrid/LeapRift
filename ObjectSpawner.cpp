@@ -29,7 +29,7 @@ void ObjectSpawner::spawn()
 	
 	objectList.push_back(tmp);
 	tmp->setPos(spawnPoint);
-	tmp->setUpPhysics(0.1, sphereShape);
+	tmp->setUpPhysics(0.1f, sphereShape);
 }
 
 void ObjectSpawner::setEntityName(std::string name)

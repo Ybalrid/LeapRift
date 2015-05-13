@@ -12,6 +12,7 @@
 
 #include "LevelManager.hpp"
 #include "Demo0.hpp"
+#include "Demo1.hpp"
 
 //Namespaces
 using namespace std;
@@ -28,12 +29,19 @@ public:
 
 	void KeyEvent(AnnKeyEvent e)
 	{
-		if(e.isPressed()  && e.getKey() == Annwvyn::KeyCode::enter)
-			lm->unloadCurrentLevel();
-		if(e.isPressed()  && e.getKey() == Annwvyn::KeyCode::back)
-			lm->jumpToFirstLevel();
+		if(e.isPressed())
+		{
+			if(e.getKey() == Annwvyn::KeyCode::enter)
+				lm->unloadCurrentLevel();
+			if(e.getKey() == Annwvyn::KeyCode::back)
+				lm->jumpToFirstLevel();
+			if(e.getKey() == Annwvyn::KeyCode::one)
+				lm->jump(level_id(0));
+			if(e.getKey() == Annwvyn::KeyCode::two)
+				lm->jump(level_id(1));
+		}
 	}
-	
+
 	void MouseEvent(AnnMouseEvent e){}
 	void StickEvent(AnnStickEvent e){}
 
@@ -48,6 +56,7 @@ AnnMain()
 
 	GameEngine->loadDir("GUI");
 	GameEngine->loadDir("media/sky");
+	GameEngine->loadDir("media/example");
 	GameEngine->initResources();
 
 	GameEngine->oculusInit();
@@ -67,12 +76,13 @@ AnnMain()
 	AnnLightObject* sun (GameEngine->addLight());
 	l->setType(Ogre::Light::LightTypes::LT_DIRECTIONAL);
 	l->setDirection(Ogre::Vector3(-1,-1,-1));
-	
+
 	LevelManager* lm = new LevelManager;
 
 	lm->addLevel(new Demo0);
-	lm->jumpToFirstLevel();
+	lm->addLevel(new Demo1);
 
+	lm->jump(1);
 	GameEngine->useDefaultEventListener();
 	GameEngine->getEventManager()->addListener(new LevelManagerListener(GameEngine->getPlayer(), lm));
 

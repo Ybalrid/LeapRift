@@ -25,7 +25,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Demo0">
-    <Position X="5" Y="7.5" Width="1.5" />
+    <Position X="4.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Demo0.hpp</FileName>
@@ -41,7 +41,7 @@
   <Class Name="Annwvyn::LeapVisualizer">
     <Position X="15.25" Y="0.5" Width="4.75" />
     <NestedTypes>
-      <Enum Name="Annwvyn::LeapVisualizer::__unnamed_enum_000b_1" Collapsed="true">
+      <Enum Name="Annwvyn::LeapVisualizer::__unnamed_enum_0005_1" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>LeapVisualizer.hpp</NewMemberFileName>
         </TypeIdentifier>
@@ -55,7 +55,7 @@
   <Class Name="Annwvyn::LevelManager">
     <Position X="0.5" Y="4.25" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AEACAAEAAAgAAAAAAAAgAAAAiAAgAAAAAAAgAAAAAAA=</HashCode>
+      <HashCode>AEBCAAEAAAgAAAAAAAAgAAAAiAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>LevelManager.hpp</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -74,6 +74,20 @@
     <TypeIdentifier>
       <HashCode>AAAAEQAEAAAAAAAAAAAAQQARAAgAAAAAAAAAAwQAAAA=</HashCode>
       <FileName>ObjectSpawner.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo1">
+    <Position X="6" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Demo1.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sinbad">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Demo1.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

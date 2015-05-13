@@ -55,7 +55,7 @@ Ogre::Matrix4 LeapVisualizer::getProjectionFromCurrentPose()
 
 void LeapVisualizer::manageSize(Leap::Hand lhand, Leap::Hand rhand)
 {
-	Ogre::Real modelPalmWidth = 0.04;
+	Ogre::Real modelPalmWidth = 0.04f;
 	if(!lSizeApplied)
 		if(lhand.isValid() && visualHands[left])
 		{
