@@ -27,6 +27,20 @@ public:
 	{
 		AnnEngine::Instance()->log("Demo1");
 		AnnEngine* GameEngine(AnnEngine::Instance());
+		
+		AnnLightObject* l (GameEngine->addLight());
+		l->setPosition(Ogre::Vector3(0,2,10));
+		l->setType(Ogre::Light::LT_SPOTLIGHT);
+		l->setDirection(0,-1,-2.5); 
+		levelLighting.push_back(l);
+
+		AnnLightObject* sun (GameEngine->addLight());
+		sun->setType(Ogre::Light::LT_DIRECTIONAL);
+		sun->setDirection(Ogre::Vector3(-0.5,1,0.5));
+		sun->setDiffuseColour(Ogre::ColourValue(1,1,.85f));
+		levelLighting.push_back(sun);
+
+		GameEngine->setAmbiantLight(Ogre::ColourValue(.33f,.33f,.33f));
 
 		AnnGameObject* Island(AnnEngine::Instance()->createGameObject("Island.mesh"));
 		Island->setUpBullet();

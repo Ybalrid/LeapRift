@@ -52,30 +52,22 @@ private:
 
 AnnMain()
 {
-	AnnEngine* GameEngine = new AnnEngine("My Game");
+	new AnnEngine("My Game");
 
-	GameEngine->loadDir("GUI");
-	GameEngine->loadDir("media/sky");
-	GameEngine->loadDir("media/example");
-	GameEngine->initResources();
+	AnnEngine::Instance()->loadDir("GUI");
+	AnnEngine::Instance()->loadDir("media/sky");
+	AnnEngine::Instance()->loadDir("media/example");
+	AnnEngine::Instance()->initResources();
 
-	GameEngine->oculusInit();
+	AnnEngine::Instance()->oculusInit();
 
-	GameEngine->setAmbiantLight(Ogre::ColourValue(.2f,.2f,.2f));
-	GameEngine->initPlayerPhysics();
+	AnnEngine::Instance()->initPlayerPhysics();
 
 	AnnLeapInterface leap;
-	HandObject* leftHand = (HandObject*) GameEngine->createGameObject("hand.left.mesh", new HandObject);
-	HandObject* rightHand = (HandObject*) GameEngine->createGameObject("hand.right.mesh", new HandObject);
+	HandObject* leftHand = (HandObject*) AnnEngine::Instance()->createGameObject("hand.left.mesh", new HandObject);
+	HandObject* rightHand = (HandObject*) AnnEngine::Instance()->createGameObject("hand.right.mesh", new HandObject);
 	LeapVisualizer visualizer;
 	visualizer.setHandsObjects(leftHand, rightHand);
-
-	AnnLightObject* l (GameEngine->addLight());
-	l->setPosition(0,0,0);
-
-	AnnLightObject* sun (GameEngine->addLight());
-	l->setType(Ogre::Light::LightTypes::LT_DIRECTIONAL);
-	l->setDirection(Ogre::Vector3(-1,-1,-1));
 
 	LevelManager* lm = new LevelManager;
 
@@ -83,19 +75,22 @@ AnnMain()
 	lm->addLevel(new Demo1);
 
 	lm->jump(1);
-	GameEngine->useDefaultEventListener();
-	GameEngine->getEventManager()->addListener(new LevelManagerListener(GameEngine->getPlayer(), lm));
+	AnnEngine::Instance()->useDefaultEventListener();
+	AnnEngine::Instance()->getEventManager()->addListener(new LevelManagerListener(AnnEngine::Instance()->getPlayer(), lm));
+
+	AnnEngine::Instance()->setDebugPhysicState(true);
 
 	do
 	{
 		leap.pollData();
-		visualizer.setPov(GameEngine->getPoseFromOOR());
+		visualizer.setPov(AnnEngine::Instance()->getPoseFromOOR());
 		visualizer.updateHandPosition(leap.getLeftHand(), leap.getRightHand());
 
 		lm->step();
+	}while(AnnEngine::Instance()->refresh());
 
-	}while(GameEngine->refresh());
 	delete lm;
+	delete AnnEngine::Instance();
 	return 0;
 }
 

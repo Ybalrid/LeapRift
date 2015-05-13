@@ -22,6 +22,7 @@ namespace Annwvyn
 
 	protected:
 		AnnGameObjectVect levelContent;
+		AnnLightVect levelLighting;
 	};
 }
 #endif

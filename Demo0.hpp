@@ -11,6 +11,19 @@ public:
 	virtual void load()
 	{
 		AnnEngine* GameEngine = AnnEngine::Instance();
+	
+		AnnLightObject* l (GameEngine->addLight());
+		l->setPosition(Ogre::Vector3(0,1,10));
+		levelLighting.push_back(l);
+
+		AnnLightObject* sun (GameEngine->addLight());
+		sun->setType(Ogre::Light::LT_DIRECTIONAL);
+		sun->setDirection(Ogre::Vector3(-1,1,1));
+		sun->setDiffuseColour(Ogre::ColourValue(1,1,.85f));
+		levelLighting.push_back(sun);
+
+		GameEngine->setAmbiantLight(Ogre::ColourValue(.25f,.25f,.25f));
+
 		GameEngine->setSkyDomeMaterial(true, "Sky/dome1");
 		GameEngine->log("Demo0 level loaded");
 		AnnGameObject* House = GameEngine->createGameObject("house.mesh");

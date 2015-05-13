@@ -16,10 +16,19 @@ AbstractLevel::~AbstractLevel()
 
 void AbstractLevel::unload()
 {
+	//Remove the sky
 	AnnEngine::Instance()->removeSkyDome();
-	AnnGameObjectVect::iterator it;
-	for(it = levelContent.begin(); it != levelContent.end(); ++it)
-		AnnEngine::Instance()->destroyGameObject(*it);
 
+	//Remove the ambiant lighting
+	AnnEngine::Instance()->setAmbiantLight(Ogre::ColourValue::Black);
+	
+	//Remove the level lights
+	for(AnnLightVect::iterator it = levelLighting.begin(); it != levelLighting.end(); ++it)
+		AnnEngine::Instance()->getSceneManager()->destroyLight(*it);
+	levelLighting.clear();
+
+	//Remove the level objects
+	for(AnnGameObjectVect::iterator it = levelContent.begin(); it != levelContent.end(); ++it)
+		AnnEngine::Instance()->destroyGameObject(*it);
 	levelContent.clear();
 }

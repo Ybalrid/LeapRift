@@ -39,7 +39,9 @@
     <ClInclude Include="Demo0.hpp">
       <Filter>DemoLevels</Filter>
     </ClInclude>
-    <ClInclude Include="Demo1.hpp" />
+    <ClInclude Include="Demo1.hpp">
+      <Filter>DemoLevels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LevelSystem">
