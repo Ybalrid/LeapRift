@@ -101,6 +101,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(AnnwvynSDK)\Annwvyn\include;$(AnnwvynSDK)\AL\openal-soft-1.15.1\include\AL;$(AnnwvynSDK)\libsndfile\include;$(AnnwvynSDK)\AL\openal-soft-1.15.1\OpenAL32\Include;$(AnnwvynSDK)\OculusSDK\3rdParty\glext;$(AnnwvynSDK)\OculusSDK\LibOVR\Src;$(AnnwvynSDK)\OculusSDK\LibOVRKernel\Src;$(AnnwvynSDK)\OculusSDK\LibOVR\Include;$(AnnwvynSDK)\bullet3\src;$(AnnwvynSDK)\OgreSDK\boost;$(AnnwvynSDK)\OgreSDK\include\OGRE;$(AnnwvynSDK)\OIS\include;$(AnnwvynSDK)\glew\include\GL;$(AnnwvynSDK)\glew\include;.\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
