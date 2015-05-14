@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "LeapVisualizer.hpp"
 #include <sstream>
 using namespace Annwvyn;

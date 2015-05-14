@@ -18,6 +18,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GrabableObject.cpp" />
     <ClCompile Include="ObjectSpawner.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractLevel.hpp" />
@@ -30,6 +33,7 @@
     <ClInclude Include="LeapVisualizer.hpp" />
     <ClInclude Include="LevelManager.hpp" />
     <ClInclude Include="ObjectSpawner.hpp" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -93,8 +97,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -102,6 +105,7 @@
       <AdditionalIncludeDirectories>$(AnnwvynSDK)\Annwvyn\include;$(AnnwvynSDK)\AL\openal-soft-1.15.1\include\AL;$(AnnwvynSDK)\libsndfile\include;$(AnnwvynSDK)\AL\openal-soft-1.15.1\OpenAL32\Include;$(AnnwvynSDK)\OculusSDK\3rdParty\glext;$(AnnwvynSDK)\OculusSDK\LibOVR\Src;$(AnnwvynSDK)\OculusSDK\LibOVRKernel\Src;$(AnnwvynSDK)\OculusSDK\LibOVR\Include;$(AnnwvynSDK)\bullet3\src;$(AnnwvynSDK)\OgreSDK\boost;$(AnnwvynSDK)\OgreSDK\include\OGRE;$(AnnwvynSDK)\OIS\include;$(AnnwvynSDK)\glew\include\GL;$(AnnwvynSDK)\glew\include;.\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/Zm300 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

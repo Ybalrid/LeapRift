@@ -1,3 +1,4 @@
+#include "stdafx.h"
 //Includes
 #include <Annwvyn.h>
 

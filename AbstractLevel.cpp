@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "AbstractLevel.hpp"
 #include <AnnEngine.hpp>
 

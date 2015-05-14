@@ -16,6 +16,7 @@
     <ClCompile Include="LeapVisualizer.cpp">
       <Filter>LeapSystem</Filter>
     </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DebugGUI.hpp" />
@@ -42,6 +43,7 @@
     <ClInclude Include="Demo1.hpp">
       <Filter>DemoLevels</Filter>
     </ClInclude>
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LevelSystem">

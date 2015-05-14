@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "LeapIntegration.hpp"
 
 using namespace Annwvyn;

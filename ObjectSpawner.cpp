@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "ObjectSpawner.hpp"
 
 ObjectSpawner::ObjectSpawner(AnnEngine* e)

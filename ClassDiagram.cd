@@ -3,19 +3,19 @@
   <Class Name="Annwvyn::AbstractLevel">
     <Position X="4.5" Y="4.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>BIAAAAAAAMAAAAAAAAAAAAAACEAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>BIAAAAAAAMAAAAAAAAAAAAEACEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AbstractLevel.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Annwvyn::AnnGameObject" Collapsed="true">
-    <Position X="7" Y="0.5" Width="1.5" />
+    <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ESBgCEyAAQkQQQAhIBIABYCQIBFsEEAjIBUBCBwADAg=</HashCode>
       <FileName>c:\oculus\annwvynsdk\annwvyn\include\anngameobject.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GrabableObject">
-    <Position X="4.75" Y="1.75" Width="3" />
+    <Position X="2.75" Y="1.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAQAAAAAAAAAAAQAAQAAAAAAA=</HashCode>
       <FileName>GrabableObject.hpp</FileName>
@@ -25,7 +25,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Demo0">
-    <Position X="4.25" Y="7.5" Width="1.5" />
+    <Position X="4" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Demo0.hpp</FileName>
@@ -41,7 +41,7 @@
   <Class Name="Annwvyn::LeapVisualizer">
     <Position X="15.25" Y="0.5" Width="4.75" />
     <NestedTypes>
-      <Enum Name="Annwvyn::LeapVisualizer::__unnamed_enum_0005_1" Collapsed="true">
+      <Enum Name="Annwvyn::LeapVisualizer::__unnamed_enum_000b_1" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>LeapVisualizer.hpp</NewMemberFileName>
         </TypeIdentifier>
@@ -55,7 +55,7 @@
   <Class Name="Annwvyn::LevelManager">
     <Position X="0.5" Y="4.25" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AEBCAAEAAAgAAAAAAAAgAAAAiAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AEACAAEAAAgAAAAAAAAgAAAAiAAgAAAAAAAgAAAAAAA=</HashCode>
       <FileName>LevelManager.hpp</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -63,7 +63,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="HandObject">
-    <Position X="8.5" Y="1.75" Width="2.5" />
+    <Position X="6.5" Y="1.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAACAAAAAAAAAA=</HashCode>
       <FileName>HandObject.hpp</FileName>
@@ -77,14 +77,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Demo1">
-    <Position X="6" Y="7.5" Width="1.5" />
+    <Position X="6.25" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Demo1.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sinbad">
-    <Position X="2.25" Y="2.5" Width="1.5" />
+    <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Demo1.hpp</FileName>
