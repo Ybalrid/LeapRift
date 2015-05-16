@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "GrabableObject.hpp"
 
+using namespace Annwvyn;
+
 GrabableObject::GrabableObject()
 {
 	grabed = false;
@@ -28,3 +30,4 @@ Ogre::Vector3 GrabableObject::getSeparationVector(Ogre::Quaternion handOrient)
 {
 	return handOrient* Ogre::Vector3(0, radius + margin, 0);
 }
+

@@ -3,6 +3,7 @@
 #include <AnnGameObject.hpp>
 #include <OgreQuaternion.h>
 #include <OgreVector3.h>
+#include <AnnTools.h>
 #include "HandObject.hpp"
 
 using namespace Annwvyn;

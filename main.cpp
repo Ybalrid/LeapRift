@@ -50,7 +50,6 @@ private:
 	LevelManager* lm;
 };
 
-
 AnnMain()
 {
 	new AnnEngine("My Game");
@@ -75,12 +74,12 @@ AnnMain()
 	lm->addLevel(new Demo0);
 	lm->addLevel(new Demo1);
 
-	lm->jump(1);
+	lm->jumpToFirstLevel();
 	AnnEngine::Instance()->useDefaultEventListener();
 	AnnEngine::Instance()->getEventManager()->addListener(new LevelManagerListener(AnnEngine::Instance()->getPlayer(), lm));
 
 	AnnEngine::Instance()->setDebugPhysicState(true);
-
+	AnnEngine::Instance()->resetOculusOrientation();
 	do
 	{
 		leap.pollData();
@@ -94,4 +93,3 @@ AnnMain()
 	delete AnnEngine::Instance();
 	return 0;
 }
-

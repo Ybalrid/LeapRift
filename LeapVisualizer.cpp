@@ -25,7 +25,7 @@ LeapVisualizer::LeapVisualizer()
 	rSizeApplied = false;
 }
 
-void LeapVisualizer::setHandsObjects(AnnGameObject* lhand, AnnGameObject* rhand)
+void LeapVisualizer::setHandsObjects(HandObject* lhand, HandObject* rhand)
 {
 	visualHands[left] = lhand;
 	visualHands[right] = rhand;
@@ -67,15 +67,15 @@ void LeapVisualizer::manageSize(Leap::Hand lhand, Leap::Hand rhand)
 			lSizeApplied = true;
 		}
 
-	if(!rSizeApplied)
-		if(rhand.isValid() && visualHands[right])
-		{
-			Ogre::Vector3 mesuredSize = (rhand.palmWidth()/1000) * Ogre::Vector3::UNIT_SCALE;
+		if(!rSizeApplied)
+			if(rhand.isValid() && visualHands[right])
+			{
+				Ogre::Vector3 mesuredSize = (rhand.palmWidth()/1000) * Ogre::Vector3::UNIT_SCALE;
 
-			visualHands[right]->setScale(mesuredSize*(visualHands[right]->node()->getScale()/modelPalmWidth));
+				visualHands[right]->setScale(mesuredSize*(visualHands[right]->node()->getScale()/modelPalmWidth));
 
-			rSizeApplied = true;
-		}
+				rSizeApplied = true;
+			}
 }
 
 void LeapVisualizer::updateHandPosition(Leap::Hand lhand, Leap::Hand rhand)
@@ -90,6 +90,8 @@ void LeapVisualizer::updateHandPosition(Leap::Hand lhand, Leap::Hand rhand)
 		position = getProjectionFromCurrentPose() * position;
 
 		visualHands[left]->setPos(position.x, position.y, position.z);
+
+		visualHands[left]->setPalmRadius(lhand.sphereRadius());
 	}
 	else if(visualHands[left])
 	{
@@ -105,6 +107,8 @@ void LeapVisualizer::updateHandPosition(Leap::Hand lhand, Leap::Hand rhand)
 		position = getProjectionFromCurrentPose() * position;
 
 		visualHands[right]->setPos(position.x, position.y, position.z);
+		visualHands[right]->setPalmRadius(rhand.sphereRadius());
+
 	}
 	else if(visualHands[right])
 	{
@@ -145,7 +149,7 @@ void LeapVisualizer::updateHandOrientation(Leap::Hand lhand, Leap::Hand rhand)
 		lwrist = Ogre::Quaternion(X,Y,Z);
 	}
 
-		if(rhand.isValid() && visualHands[right])
+	if(rhand.isValid() && visualHands[right])
 	{
 		//Get vectors from the LEAP hand object
 		Leap::Vector normal(rhand.palmNormal());
@@ -173,7 +177,7 @@ void LeapVisualizer::updateHandOrientation(Leap::Hand lhand, Leap::Hand rhand)
 		//visualHands[right]->setOrientation(Ogre::Quaternion(X,Y,Z));
 		rwrist = Ogre::Quaternion(X,Y,Z);
 	}
-		updateFingerPose(lhand, rhand);
+	updateFingerPose(lhand, rhand);
 }
 
 
@@ -201,7 +205,7 @@ void LeapVisualizer::updateFingerPose(Leap::Hand lhand, Leap::Hand rhand)
 
 			Ogre::Quaternion boneOrientation(getBoneOrientation(bone, true));
 			if(fingerIndex != 0)
-			b->setOrientation(lPose.orientation
+				b->setOrientation(lPose.orientation
 				*boneOrientation
 				/**Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::NEGATIVE_UNIT_X)*/
 				*Ogre::Quaternion(Ogre::Degree(180), Ogre::Vector3::UNIT_Z)
@@ -210,9 +214,9 @@ void LeapVisualizer::updateFingerPose(Leap::Hand lhand, Leap::Hand rhand)
 			else
 				b->setOrientation(lPose.orientation
 				*boneOrientation
-			//	*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::UNIT_X)
-			*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::NEGATIVE_UNIT_X)
-			*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::UNIT_Y)
+				//	*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::UNIT_X)
+				*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::NEGATIVE_UNIT_X)
+				*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::UNIT_Y)
 				);
 		}
 	}
@@ -237,11 +241,11 @@ void LeapVisualizer::updateFingerPose(Leap::Hand lhand, Leap::Hand rhand)
 
 			Ogre::Quaternion boneOrientation(getBoneOrientation(bone, false));
 			if(fingerIndex != 0)
-			b->setOrientation(lPose.orientation
+				b->setOrientation(lPose.orientation
 				*boneOrientation
 				/**Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::NEGATIVE_UNIT_X)*/
-				 *Ogre::Quaternion(Ogre::Degree(180), Ogre::Vector3::UNIT_Z)
-				 *Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::NEGATIVE_UNIT_X)
+				*Ogre::Quaternion(Ogre::Degree(180), Ogre::Vector3::UNIT_Z)
+				*Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::NEGATIVE_UNIT_X)
 				);
 			else
 				b->setOrientation(lPose.orientation

@@ -3,6 +3,8 @@
 #define M_PI 3.14159265358979323846
 #include "AbstractLevel.hpp"
 
+#include "GrabableObject.hpp"
+
 using namespace Annwvyn;
 
 class Demo0 : public AbstractLevel
@@ -48,6 +50,11 @@ public:
 		GameEngine->getPlayer()->setPosition(Ogre::Vector3(0,1,10));
 		GameEngine->getPlayer()->setOrientation(Ogre::Euler(Ogre::Real(M_PI)));
 		GameEngine->resetPlayerPhysics();
+
+		GrabableObject* ball = (GrabableObject*) GameEngine->createGameObject("Ball.mesh", new GrabableObject);
+		levelContent.push_back(ball);
+
+		ball->setPos(0.1, 0.55, 10.3);
 	}
 
 	virtual void runLogic()

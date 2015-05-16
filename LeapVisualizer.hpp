@@ -3,7 +3,7 @@
 
 #include <Leap.h>
 #include <Annwvyn.h>
-
+#include "HandObject.hpp"
 namespace Annwvyn
 {
 	class LeapVisualizer
@@ -12,14 +12,14 @@ namespace Annwvyn
 		LeapVisualizer();
 		void setPov(OgrePose pose);
 		void updateHandPosition(Leap::Hand lhand, Leap::Hand rhand);
-		void setHandsObjects(AnnGameObject* lhand, AnnGameObject* rhand);
+		void setHandsObjects(HandObject* lhand, HandObject* rhand);
 		Ogre::Matrix4 getProjectionFromCurrentPose();
 
 		static Ogre::Vector3 convert(Leap::Vector v);
 
 	private:
 		enum {left, right};
-		AnnGameObject* visualHands[2];
+		HandObject* visualHands[2];
 
 		Ogre::Vector3 LeapEyeOffset;
 		Ogre::Matrix4 currentPov;

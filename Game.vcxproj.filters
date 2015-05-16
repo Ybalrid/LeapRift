@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="GrabableObject.cpp" />
-    <ClCompile Include="ObjectSpawner.cpp" />
     <ClCompile Include="LevelManager.cpp">
       <Filter>LevelSystem</Filter>
     </ClCompile>
@@ -19,11 +17,15 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Precompiled-Header</Filter>
     </ClCompile>
+    <ClCompile Include="GrabableObject.cpp">
+      <Filter>LeapSystem\Interaction</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectSpawner.cpp">
+      <Filter>LeapSystem\Interaction</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DebugGUI.hpp" />
-    <ClInclude Include="GrabableObject.hpp" />
-    <ClInclude Include="ObjectSpawner.hpp" />
     <ClInclude Include="LevelManager.hpp">
       <Filter>LevelSystem</Filter>
     </ClInclude>
@@ -48,6 +50,12 @@
     <ClInclude Include="stdafx.h">
       <Filter>Precompiled-Header</Filter>
     </ClInclude>
+    <ClInclude Include="GrabableObject.hpp">
+      <Filter>LeapSystem\Interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectSpawner.hpp">
+      <Filter>LeapSystem\Interaction</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LevelSystem">
@@ -61,6 +69,9 @@
     </Filter>
     <Filter Include="LevelSystem\DemoLevels">
       <UniqueIdentifier>{921cc025-a059-4741-a10b-573b52572b89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LeapSystem\Interaction">
+      <UniqueIdentifier>{9e61f86c-10d5-461f-9c39-f8b2188200da}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

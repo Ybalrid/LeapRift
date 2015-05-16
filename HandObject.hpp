@@ -25,6 +25,17 @@ public:
 				return wrist->getOrientation();			
 		return Ogre::Quaternion::IDENTITY;
 	}
+
+	void setPalmRadius(float radius)
+	{
+		palmRadius = radius/1000;
+		std::stringstream ss;
+		ss << (void*)this << " palm radius : " << palmRadius;
+		AnnEngine::Instance()->log(ss.str());
+	}
+
+private:
+	float palmRadius;
 };
 
 #endif
