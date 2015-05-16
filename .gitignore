@@ -3,10 +3,12 @@
 *.lo
 *.o
 *.obj
+obj/*
 
 # Precompiled Headers
 *.gch
 *.pch
+ipch/
 
 # Compiled Dynamic libraries
 *.so
@@ -26,3 +28,21 @@
 *.exe
 *.out
 *.app
+
+# Debug symbols
+*.pdb
+
+# Logs
+*.log
+
+# Visual studio files
+*.user
+*.sdf
+*.opensdf
+*.vcxproj*
+*.suo
+ClassDiagram.png
+
+# LEAP Motion SDK
+LeapSDK/*
+

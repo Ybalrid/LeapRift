@@ -16,7 +16,7 @@ namespace Annwvyn
 		LevelManager();
 		~LevelManager();
 
-		void jump(size_t levelId);
+		void jump(level_id levelId);
 		void jump(AbstractLevel* level);
 		
 		void addLevel(AbstractLevel* level);

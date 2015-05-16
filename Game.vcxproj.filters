@@ -16,7 +16,9 @@
     <ClCompile Include="LeapVisualizer.cpp">
       <Filter>LeapSystem</Filter>
     </ClCompile>
-    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Precompiled-Header</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DebugGUI.hpp" />
@@ -38,12 +40,14 @@
       <Filter>LeapSystem</Filter>
     </ClInclude>
     <ClInclude Include="Demo0.hpp">
-      <Filter>DemoLevels</Filter>
+      <Filter>LevelSystem\DemoLevels</Filter>
     </ClInclude>
     <ClInclude Include="Demo1.hpp">
-      <Filter>DemoLevels</Filter>
+      <Filter>LevelSystem\DemoLevels</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="stdafx.h">
+      <Filter>Precompiled-Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LevelSystem">
@@ -52,7 +56,10 @@
     <Filter Include="LeapSystem">
       <UniqueIdentifier>{c71a1a16-e423-4142-9183-867dcdfc892b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="DemoLevels">
+    <Filter Include="Precompiled-Header">
+      <UniqueIdentifier>{c972cf8a-2b57-45d3-a046-dde687090033}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LevelSystem\DemoLevels">
       <UniqueIdentifier>{921cc025-a059-4741-a10b-573b52572b89}</UniqueIdentifier>
     </Filter>
   </ItemGroup>

@@ -25,7 +25,6 @@ AnnLeapInterface::AnnLeapInterface()
 	lastFrameId = -1;
 }
 
-
 AnnLeapInterface::~AnnLeapInterface()
 {
 	logManagerPtr->logMessage
@@ -125,7 +124,6 @@ void AnnLeapInterface::extractHandsObjects(Leap::HandList hands)
 		}
 	}
 }
-
 
 //passives getters
 bool AnnLeapInterface::newDataAvailable()
