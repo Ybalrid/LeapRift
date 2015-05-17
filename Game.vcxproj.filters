@@ -56,6 +56,9 @@
     <ClInclude Include="ObjectSpawner.hpp">
       <Filter>LeapSystem\Interaction</Filter>
     </ClInclude>
+    <ClInclude Include="LeapInteractionManager.hpp">
+      <Filter>LeapSystem\Interaction</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LevelSystem">

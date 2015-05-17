@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="Annwvyn::AbstractLevel">
-    <Position X="4.5" Y="4.5" Width="2.75" />
+    <Position X="4.5" Y="7" Width="2.75" />
     <TypeIdentifier>
       <HashCode>BIAAAAAAAMAAAAAAAAAAAAEACEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AbstractLevel.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Annwvyn::AnnGameObject" Collapsed="true">
-    <Position X="4" Y="0.5" Width="1.5" />
+    <Position X="7.75" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ESBgCEyAAQkQQQAhIBIABYCQIBFsEEAjIBUBCBwADAg=</HashCode>
       <FileName>c:\oculus\annwvynsdk\annwvyn\include\anngameobject.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GrabableObject">
-    <Position X="2.75" Y="1.75" Width="3" />
+    <Position X="6.5" Y="3.25" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAQAAAAAAAAAAAQAAQAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAACQIAAAQAAAAAQAAAAQAAAAAAQAAQAAAAAAA=</HashCode>
       <FileName>GrabableObject.hpp</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -25,21 +25,21 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Demo0">
-    <Position X="4" Y="7.75" Width="1.5" />
+    <Position X="4" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Demo0.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Annwvyn::AnnLeapInterface">
-    <Position X="12" Y="0.5" Width="3" />
+  <Class Name="Annwvyn::AnnLeapInterface" Collapsed="true">
+    <Position X="20" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>RIABAUIAEABAEAEAAIBAAQAAAAAAAAAAAAAAgAQAAAA=</HashCode>
       <FileName>LeapIntegration.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Annwvyn::LeapVisualizer">
-    <Position X="15.25" Y="0.5" Width="4.75" />
+    <Position X="14.25" Y="1.75" Width="4.75" />
     <NestedTypes>
       <Enum Name="Annwvyn::LeapVisualizer::__unnamed_enum_000b_1" Collapsed="true">
         <TypeIdentifier>
@@ -51,9 +51,12 @@
       <HashCode>CMAACACAAAgAjAABAMAAAAAAAAAAAiARAAgAICCAAAQ=</HashCode>
       <FileName>LeapVisualizer.hpp</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="visualHands" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Annwvyn::LevelManager">
-    <Position X="0.5" Y="4.25" Width="2.75" />
+    <Position X="0.5" Y="7" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AEACAAEAAAgAAAAAAAAgAAAAiAAgAAAAAAAgAAAAAAA=</HashCode>
       <FileName>LevelManager.hpp</FileName>
@@ -63,32 +66,49 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="HandObject">
-    <Position X="6.5" Y="1.75" Width="2.5" />
+    <Position X="10.25" Y="3.25" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <HashCode>AABAAAAAAECAAAAAAAAAAEAAAAAAAAAACAAAAAAAAAA=</HashCode>
       <FileName>HandObject.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ObjectSpawner">
-    <Position X="12.25" Y="5.5" Width="2.75" />
+  <Class Name="ObjectSpawner" Collapsed="true">
+    <Position X="21.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEQAEAAAAAAAAAAAAQQARAAgAAAAAAAAAAwQAAAA=</HashCode>
       <FileName>ObjectSpawner.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Demo1">
-    <Position X="6.25" Y="7.75" Width="1.5" />
+    <Position X="6.25" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Demo1.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sinbad">
-    <Position X="0.5" Y="1.75" Width="1.5" />
+    <Position X="4.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Demo1.hpp</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="LeapInteractionManager">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="LeapInteractionManager::__unnamed_enum_05eb_1" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>LeapInteractionManager.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAKAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>LeapInteractionManager.hpp</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="hands" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

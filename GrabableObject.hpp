@@ -19,6 +19,8 @@ class GrabableObject : public AnnGameObject
 		Ogre::Vector3 getSeparationVector(Ogre::Quaternion handOrientation);
 
 	private:
+		//friend void HandObject::grab(GrabableObject*);
+
 		bool grabed;
 		HandObject* holder;
 		float radius;

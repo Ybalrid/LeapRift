@@ -54,7 +54,7 @@ public:
 		GrabableObject* ball = (GrabableObject*) GameEngine->createGameObject("Ball.mesh", new GrabableObject);
 		levelContent.push_back(ball);
 
-		ball->setPos(0.1, 0.55, 10.3);
+		ball->setPos(0.1f, 0.55f, 10.3f);
 	}
 
 	virtual void runLogic()

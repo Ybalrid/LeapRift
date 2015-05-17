@@ -1,9 +1,11 @@
 #ifndef HANDOBJECT
 #define HANDOBJECT
 
-#include <AnnGameObject.hpp>
+//#include "GrabableObject.hpp"
 #include <OgreQuaternion.h>
 using namespace Annwvyn;
+
+class GrabableObject;
 
 class HandObject : public AnnGameObject
 {
@@ -34,8 +36,18 @@ public:
 		AnnEngine::Instance()->log(ss.str());
 	}
 
+	/*void grab(GrabableObject* object)
+	{
+		gObject = object;
+		gObject->currentHandObjectHolding = this;
+		object->grabed = true;
+		gObject->setPos(this->pos() + gObject->getSeparationVector(getWristOrientation()));
+	}
+	*/
+
 private:
 	float palmRadius;
+	GrabableObject* gObject;
 };
 
 #endif
