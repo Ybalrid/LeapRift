@@ -293,10 +293,10 @@ Ogre::Vector3 LeapVisualizer::convert(Leap::Vector v)
 
 void LeapVisualizer::update()
 {
-	AnnEngine::log("Update Leap Viz");
+	//AnnEngine::log("Update Leap Viz");
 	if(inter)
 	{
-		AnnEngine::log("Polling data from the interface");
+		//AnnEngine::log("Polling data from the interface");
 		inter->pollData();
 		this->setPov(AnnEngine::Instance()->getPoseFromOOR());
 		this->updateHandPosition(inter->getLeftHand(), inter->getRightHand());

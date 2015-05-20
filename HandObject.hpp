@@ -35,9 +35,9 @@ public:
 	void setPalmRadius(float radius)
 	{
 		palmRadius = radius/1000;
-		std::stringstream ss;
+		/*std::stringstream ss;
 		ss << (void*)this << " palm radius : " << palmRadius;
-		AnnEngine::Instance()->log(ss.str());
+		AnnEngine::Instance()->log(ss.str());*/
 	}
 
 	/*void grab(GrabableObject* object)
