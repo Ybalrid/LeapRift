@@ -21,6 +21,7 @@ LeapVisualizer::LeapVisualizer()
 
 	visualHands[left] = NULL;
 	visualHands[right] = NULL;
+	inter = NULL;
 	lSizeApplied = false;
 	rSizeApplied = false;
 }
@@ -289,3 +290,22 @@ Ogre::Vector3 LeapVisualizer::convert(Leap::Vector v)
 {
 	return Ogre::Vector3(v.x, v.y, v.z);
 }
+
+void LeapVisualizer::update()
+{
+	AnnEngine::log("Update Leap Viz");
+	if(inter)
+	{
+		AnnEngine::log("Polling data from the interface");
+		inter->pollData();
+		this->setPov(AnnEngine::Instance()->getPoseFromOOR());
+		this->updateHandPosition(inter->getLeftHand(), inter->getRightHand());
+	}
+}
+
+void LeapVisualizer::setInterfarce(AnnLeapInterface* i)
+{
+	inter = i;
+}
+
+

@@ -3,9 +3,12 @@
 
 //#include "GrabableObject.hpp"
 #include <OgreQuaternion.h>
+
 using namespace Annwvyn;
 
 class GrabableObject;
+
+class LeapVisualizer;
 
 class HandObject : public AnnGameObject
 {
@@ -13,6 +16,7 @@ public:
 
 	HandObject() : AnnGameObject()
 	{
+		vis = NULL;
 	}
 
 	Ogre::Quaternion getWristOrientation()
@@ -45,7 +49,15 @@ public:
 	}
 	*/
 
+	void atRefresh();
+	void setVisualizerAddress(LeapVisualizer* p)
+	{
+		vis = p;
+	}
+
+
 private:
+	LeapVisualizer* vis;
 	float palmRadius;
 	GrabableObject* gObject;
 };

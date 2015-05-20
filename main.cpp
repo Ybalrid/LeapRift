@@ -52,6 +52,7 @@ private:
 
 AnnMain()
 {
+	AnnEngine::openConsole();
 	new AnnEngine("My Game");
 
 	AnnEngine::Instance()->loadDir("GUI");
@@ -67,7 +68,11 @@ AnnMain()
 	HandObject* leftHand = (HandObject*) AnnEngine::Instance()->createGameObject("hand.left.mesh", new HandObject);
 	HandObject* rightHand = (HandObject*) AnnEngine::Instance()->createGameObject("hand.right.mesh", new HandObject);
 	LeapVisualizer visualizer;
+	visualizer.setInterfarce(leap.getPointer());
 	visualizer.setHandsObjects(leftHand, rightHand);
+
+	//for midrendering 
+	leftHand->setVisualizerAddress(visualizer.getPointer());
 
 	LevelManager* lm = new LevelManager;
 
@@ -80,12 +85,9 @@ AnnMain()
 
 	AnnEngine::Instance()->setDebugPhysicState(true);
 	AnnEngine::Instance()->resetOculusOrientation();
+	
 	do
 	{
-		leap.pollData();
-		visualizer.setPov(AnnEngine::Instance()->getPoseFromOOR());
-		visualizer.updateHandPosition(leap.getLeftHand(), leap.getRightHand());
-
 		lm->step();
 	}while(AnnEngine::Instance()->refresh());
 

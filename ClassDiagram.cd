@@ -34,26 +34,9 @@
   <Class Name="Annwvyn::AnnLeapInterface" Collapsed="true">
     <Position X="20" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>RIABAUIAEABAEAEAAIBAAQAAAAAAAAAAAAAAgAQAAAA=</HashCode>
+      <HashCode>RIABAUIAEABAEAEAAIBAAQAAAAAAAAAAAAAAgAQIAAA=</HashCode>
       <FileName>LeapIntegration.hpp</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="Annwvyn::LeapVisualizer">
-    <Position X="14.25" Y="1.75" Width="4.75" />
-    <NestedTypes>
-      <Enum Name="Annwvyn::LeapVisualizer::__unnamed_enum_000b_1" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>LeapVisualizer.hpp</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
-    <TypeIdentifier>
-      <HashCode>CMAACACAAAgAjAABAMAAAAAAAAAAAiARAAgAICCAAAQ=</HashCode>
-      <FileName>LeapVisualizer.hpp</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Field Name="visualHands" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Annwvyn::LevelManager">
     <Position X="0.5" Y="7" Width="2.75" />
@@ -68,7 +51,7 @@
   <Class Name="HandObject">
     <Position X="10.25" Y="3.25" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAECAAAAAAAAAAEAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <HashCode>ACBAAAAAAECAgAAAAAAAAEAAAAAAAAABCAAAAAAAAAA=</HashCode>
       <FileName>HandObject.hpp</FileName>
     </TypeIdentifier>
   </Class>
@@ -96,14 +79,14 @@
   <Class Name="LeapInteractionManager">
     <Position X="10.75" Y="0.5" Width="1.5" />
     <NestedTypes>
-      <Enum Name="LeapInteractionManager::__unnamed_enum_05eb_1" Collapsed="true">
+      <Enum Name="LeapInteractionManager::__unnamed_enum_060a_1" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>LeapInteractionManager.hpp</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAQAAAAAAAAAKAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <HashCode>AAAAAAAEAAAQAAAAAAAAAKAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>LeapInteractionManager.hpp</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>

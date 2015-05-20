@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AbstractLevel.cpp" />
+    <ClCompile Include="HandObject.cpp" />
     <ClCompile Include="LeapIntegration.cpp" />
     <ClCompile Include="LeapVisualizer.cpp" />
     <ClCompile Include="LevelManager.cpp" />

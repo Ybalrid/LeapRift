@@ -23,6 +23,9 @@
     <ClCompile Include="ObjectSpawner.cpp">
       <Filter>LeapSystem\Interaction</Filter>
     </ClCompile>
+    <ClCompile Include="HandObject.cpp">
+      <Filter>LeapSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DebugGUI.hpp" />

@@ -4,12 +4,14 @@
 #include <Leap.h>
 #include <Annwvyn.h>
 #include "HandObject.hpp"
-namespace Annwvyn
-{
+#include "LeapIntegration.hpp"
+
 	class LeapVisualizer
 	{
 	public:
 		LeapVisualizer();
+		LeapVisualizer* getPointer(){return this;}
+
 		void setPov(OgrePose pose);
 		void updateHandPosition(Leap::Hand lhand, Leap::Hand rhand);
 		void setHandsObjects(HandObject* lhand, HandObject* rhand);
@@ -17,7 +19,11 @@ namespace Annwvyn
 
 		static Ogre::Vector3 convert(Leap::Vector v);
 
+		void update();
+		void setInterfarce(AnnLeapInterface* interface);
+
 	private:
+		AnnLeapInterface* inter;
 		enum {left, right};
 		HandObject* visualHands[2];
 
@@ -40,8 +46,6 @@ namespace Annwvyn
 
 
 		Ogre::Quaternion lwrist, rwrist;
-
 	};
-}
 
 #endif

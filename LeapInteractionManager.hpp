@@ -8,8 +8,10 @@
 class LeapInteractionManager
 {
 public :
-	LeapInteractionManager();
+	LeapInteractionManager(HandObject* leftHand, HandObject* rightHand);
 	void update();
+	void reset();
+		
 private:
 	std::vector <GrabableObject*> grabableList;
 	enum {left, right};

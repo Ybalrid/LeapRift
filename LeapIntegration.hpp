@@ -1,3 +1,6 @@
+#ifndef ANNLEAPINTERFACE
+#define ANNLEAPINTERFACE
+
 #include <Leap.h>
 #include <Ogre.h> //get for accessing ogre log manager
 #include <sstream>
@@ -10,6 +13,7 @@ namespace Annwvyn
 	public:
 		///Initialise the LeapMotion interface
 		AnnLeapInterface();
+		AnnLeapInterface* getPointer(){return this;}
 
 		///delete the controller
 		~AnnLeapInterface();
@@ -67,3 +71,5 @@ namespace Annwvyn
 		std::string logMessage;
 	};
 }
+
+#endif //ANNLEAPINTERFACE
