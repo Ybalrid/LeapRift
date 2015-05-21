@@ -5,7 +5,6 @@ using namespace Annwvyn;
 
 AnnLeapInterface::AnnLeapInterface()
 {
-
 	//Create a new leap controller 
 	controller = new Leap::Controller();
 
