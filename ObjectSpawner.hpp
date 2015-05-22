@@ -1,7 +1,6 @@
 #ifndef SPAWNER
 #define SPAWNER
 
-#include <AnnGameObject.hpp>
 #include <AnnEngine.hpp>
 #include <vector>
 #include "GrabableObject.hpp"
