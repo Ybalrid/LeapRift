@@ -3,6 +3,8 @@
 
 //#include "GrabableObject.hpp"
 #include <OgreQuaternion.h>
+#include "LeapEvent.hpp"
+
 
 using namespace Annwvyn;
 
@@ -16,7 +18,9 @@ public:
 
 	HandObject() : AnnGameObject()
 	{
+		type = "unkonwn";
 		vis = NULL;
+		closed = false;
 	}
 
 	Ogre::Quaternion getWristOrientation()
@@ -35,7 +39,8 @@ public:
 	void setPalmRadius(float radius)
 	{
 		palmRadius = radius/1000;
-		/*std::stringstream ss;
+		/*
+		std::stringstream ss;
 		ss << (void*)this << " palm radius : " << palmRadius;
 		AnnEngine::Instance()->log(ss.str());*/
 	}
@@ -50,16 +55,53 @@ public:
 	*/
 
 	void atRefresh();
+	
+
 	void setVisualizerAddress(LeapVisualizer* p)
 	{
 		vis = p;
 	}
 
+	void setType(std::string stype)
+	{
+		type = stype;
+	}
+
+	void registerListener(LeapEventListener* listener)
+	{
+		if(listener)
+			listeners.push_back(listener);
+	}
+
+	void unregisterAllListeners()
+	{
+		listeners.clear();
+	}
+
+	void unregisterListener(LeapEventListener* listener)
+	{
+		std::vector<LeapEventListener*>::iterator it;
+		while(it != listeners.end())
+			if(*it == listener)
+				it = listeners.erase(it);
+	}
+
+	void notifyListener(LeapEvent* e, LeapEventType eventType)
+	{
+		std::vector<LeapEventListener*>::iterator it;
+		for(it = listeners.begin(); it != listeners.end(); it++)
+		{
+			(*it)->notifyEvent(e, eventType);
+		}
+	}
 
 private:
+	std::vector<LeapEventListener*> listeners;
 	LeapVisualizer* vis;
 	float palmRadius;
 	GrabableObject* gObject;
+	bool closed;
+	std::string type;
 };
 
 #endif

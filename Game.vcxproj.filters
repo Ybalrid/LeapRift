@@ -62,6 +62,9 @@
     <ClInclude Include="LeapInteractionManager.hpp">
       <Filter>LeapSystem\Interaction</Filter>
     </ClInclude>
+    <ClInclude Include="LeapEvent.hpp">
+      <Filter>LeapSystem\EventSystem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LevelSystem">
@@ -78,6 +81,9 @@
     </Filter>
     <Filter Include="LeapSystem\Interaction">
       <UniqueIdentifier>{9e61f86c-10d5-461f-9c39-f8b2188200da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LeapSystem\EventSystem">
+      <UniqueIdentifier>{13725822-3b0f-4b00-b84d-cd73e50e024a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

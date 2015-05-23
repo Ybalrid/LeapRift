@@ -30,6 +30,7 @@
     <ClInclude Include="Demo1.hpp" />
     <ClInclude Include="GrabableObject.hpp" />
     <ClInclude Include="HandObject.hpp" />
+    <ClInclude Include="LeapEvent.hpp" />
     <ClInclude Include="LeapIntegration.hpp" />
     <ClInclude Include="LeapInteractionManager.hpp" />
     <ClInclude Include="LeapVisualizer.hpp" />

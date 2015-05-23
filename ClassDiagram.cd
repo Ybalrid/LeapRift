@@ -20,9 +20,6 @@
       <HashCode>AAAAAAAACQIAAAQAAAAAQAAAAQAAAAAAQAAQAAAAAAA=</HashCode>
       <FileName>GrabableObject.hpp</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="holder" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Demo0">
     <Position X="4" Y="10.5" Width="1.5" />
@@ -47,13 +44,6 @@
     <ShowAsAssociation>
       <Field Name="current" />
     </ShowAsAssociation>
-  </Class>
-  <Class Name="HandObject">
-    <Position X="11.25" Y="3.5" Width="2.5" />
-    <TypeIdentifier>
-      <HashCode>AABAAAAAAECAAAAAAAAAAEAAAAAAAAAACAAAAAAAAAA=</HashCode>
-      <FileName>HandObject.hpp</FileName>
-    </TypeIdentifier>
   </Class>
   <Class Name="ObjectSpawner">
     <Position X="5.75" Y="16.25" Width="2.75" />
@@ -82,7 +72,7 @@
   <Class Name="LeapInteractionManager">
     <Position X="11.25" Y="0.5" Width="4.75" />
     <NestedTypes>
-      <Enum Name="LeapInteractionManager::__unnamed_enum_05eb_1" Collapsed="true">
+      <Enum Name="LeapInteractionManager::__unnamed_enum_060a_1" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>LeapInteractionManager.hpp</NewMemberFileName>
         </TypeIdentifier>
@@ -92,14 +82,11 @@
       <HashCode>AAAAAAAEAAAQAAAAAAAAAKAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>LeapInteractionManager.hpp</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Field Name="hands" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="LeapVisualizer">
     <Position X="11.5" Y="6.75" Width="4.25" />
     <NestedTypes>
-      <Enum Name="LeapVisualizer::__unnamed_enum_000b_1" Collapsed="true">
+      <Enum Name="LeapVisualizer::__unnamed_enum_0005_1" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>LeapVisualizer.hpp</NewMemberFileName>
         </TypeIdentifier>
@@ -113,89 +100,9 @@
       <Field Name="inter" />
       <Field Name="lPose" />
     </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Field Name="visualHands" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="std::vector&lt;_Ty, _Alloc&gt;" Collapsed="true">
     <Position X="5.75" Y="14.5" Width="4" />
-    <NestedTypes>
-      <Typedef Name="std::vector&lt;_Ty, _Alloc&gt;::reference" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-      <Typedef Name="std::vector&lt;_Ty, _Alloc&gt;::const_iterator" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-      <Typedef Name="std::vector&lt;_Ty, _Alloc&gt;::difference_type" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-      <Typedef Name="std::vector&lt;_Ty, _Alloc&gt;::_Mybase" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-      <Typedef Name="std::vector&lt;_Ty, _Alloc&gt;::_Myt" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-      <Typedef Name="std::vector&lt;_Ty, _Alloc&gt;::allocator_type" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-      <Typedef Name="std::vector&lt;_Ty, _Alloc&gt;::pointer" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-      <Typedef Name="std::vector&lt;_Ty, _Alloc&gt;::const_pointer" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-      <Typedef Name="std::vector&lt;_Ty, _Alloc&gt;::size_type" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-      <Typedef Name="std::vector&lt;_Ty, _Alloc&gt;::const_reference" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-      <Typedef Name="std::vector&lt;_Ty, _Alloc&gt;::reverse_iterator" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-      <Typedef Name="std::vector&lt;_Ty, _Alloc&gt;::_Alty" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-      <Typedef Name="std::vector&lt;_Ty, _Alloc&gt;::iterator" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-      <Typedef Name="std::vector&lt;_Ty, _Alloc&gt;::value_type" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-      <Typedef Name="std::vector&lt;_Ty, _Alloc&gt;::const_reverse_iterator" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>IUoEEIEqCLBMUEBAAKMIAgISAgUESAIAxQEwggAEAAI=</HashCode>
       <FileName>c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector</FileName>

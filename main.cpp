@@ -65,8 +65,13 @@ AnnMain()
 	AnnEngine::Instance()->initPlayerPhysics();
 
 	AnnLeapInterface leap;
+	LeapLoggerListener* l = new LeapLoggerListener();
 	HandObject* leftHand = (HandObject*) AnnEngine::Instance()->createGameObject("hand.left.mesh", new HandObject);
+	leftHand->setType("left");
+	leftHand->registerListener(l);
 	HandObject* rightHand = (HandObject*) AnnEngine::Instance()->createGameObject("hand.right.mesh", new HandObject);
+	rightHand->setType("right");
+	rightHand->registerListener(l);
 	LeapVisualizer visualizer;
 	visualizer.setInterfarce(leap.getPointer());
 	visualizer.setHandsObjects(leftHand, rightHand);
