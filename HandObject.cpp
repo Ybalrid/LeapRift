@@ -9,7 +9,7 @@ void HandObject::atRefresh()
 	if(closed && palmRadius > 0.09)
 	{
 		closed = false;
-		
+
 		//Create Event
 		LeapCloseEvent e;
 		e.close = false;
@@ -31,4 +31,14 @@ void HandObject::atRefresh()
 	}
 
 
+}
+
+void HandObject::unregisterListener(LeapEventListener* listener)
+{
+	std::vector<LeapEventListener*>::iterator it(listeners.begin());
+	while(it != listeners.end())
+		if(*it == listener)
+			it = listeners.erase(it);
+		else
+			it++;
 }

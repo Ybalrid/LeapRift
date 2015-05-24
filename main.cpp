@@ -92,6 +92,7 @@ AnnMain()
 	//AnnEngine::Instance()->setDebugPhysicState(true);
 
 	AnnEngine::Instance()->resetOculusOrientation();
+	AnnEngine::Instance()->openDebugWindow();
 	do
 	{
 		lm->step();

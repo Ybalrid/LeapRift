@@ -55,13 +55,6 @@
       <Field Name="objectList" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Demo1">
-    <Position X="6.25" Y="11.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Demo1.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Sinbad">
     <Position X="4.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
@@ -72,7 +65,7 @@
   <Class Name="LeapInteractionManager">
     <Position X="12.25" Y="0.5" Width="4.75" />
     <NestedTypes>
-      <Enum Name="LeapInteractionManager::__unnamed_enum_060a_1" Collapsed="true">
+      <Enum Name="LeapInteractionManager::__unnamed_enum_05eb_1" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>LeapInteractionManager.hpp</NewMemberFileName>
         </TypeIdentifier>
@@ -82,27 +75,6 @@
       <HashCode>AAAAAAAEAAAQAAAAAAAAAKAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>LeapInteractionManager.hpp</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Field Name="hands" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="LeapVisualizer">
-    <Position X="18.75" Y="5.5" Width="4.25" />
-    <NestedTypes>
-      <Enum Name="LeapVisualizer::__unnamed_enum_0005_1" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>LeapVisualizer.hpp</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
-    <TypeIdentifier>
-      <HashCode>CMAACACAAAhAjAABAMAAAAAAAAAQAiARAAgAICCMAAQ=</HashCode>
-      <FileName>LeapVisualizer.hpp</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="inter" />
-      <Field Name="lPose" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="std::vector&lt;_Ty, _Alloc&gt;" Collapsed="true">
     <Position X="5.75" Y="17.25" Width="4" />
@@ -139,11 +111,11 @@
       <FileName>LeapEvent.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="HandObject">
-    <Position X="11.5" Y="4.5" Width="4" />
+  <Class Name="Demo1">
+    <Position X="6.25" Y="11.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACBAAgCAAECAgAAAAAAAAEAAAJABAAABCIBAAAAAAEA=</HashCode>
-      <FileName>HandObject.hpp</FileName>
+      <HashCode>AIAAAAAAAIAAQAAAAAAAAAgAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Demo1.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="OgrePose">

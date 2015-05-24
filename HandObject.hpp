@@ -78,13 +78,8 @@ public:
 		listeners.clear();
 	}
 
-	void unregisterListener(LeapEventListener* listener)
-	{
-		std::vector<LeapEventListener*>::iterator it;
-		while(it != listeners.end())
-			if(*it == listener)
-				it = listeners.erase(it);
-	}
+	void unregisterListener(LeapEventListener* listener);
+
 
 	void notifyListener(LeapEvent* e, LeapEventType eventType)
 	{

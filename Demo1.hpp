@@ -2,9 +2,26 @@
 #define DEMO1
 #define M_PI 3.14159265358979323846
 #include "AbstractLevel.hpp"
+#include "LeapEvent.hpp"
+
+
 
 using namespace Annwvyn;
 
+class FireballSpawner : public LeapEventListener
+{
+public:
+	FireballSpawner() : LeapEventListener()
+	{
+
+	}
+
+	bool closeEvent(LeapCloseEvent* e)
+	{
+		AnnEngine::log("fireball interaction");
+		return true;
+	}
+};
 
 class Sinbad : public AnnGameObject
 {
@@ -23,8 +40,18 @@ public:
 class Demo1 : public AbstractLevel
 {
 public:
+
+	Demo1() : AbstractLevel(),
+		fireballSpawner(NULL)
+	{
+	}
+
 	virtual void load()
 	{
+		fireballSpawner = new FireballSpawner();
+		LeapVisualizer::getHands()[0]->registerListener(fireballSpawner);
+		LeapVisualizer::getHands()[1]->registerListener(fireballSpawner);
+
 		AnnEngine::Instance()->log("Demo1");
 		AnnEngine* GameEngine(AnnEngine::Instance());
 		
@@ -62,9 +89,27 @@ public:
 		GameEngine->resetPlayerPhysics();
 	}
 
+	virtual void unload() 
+	{
+		if(LeapVisualizer::getHands()[0] == NULL)
+		{
+			AnnEngine::log("Some shit is going wrong here...");
+		}
+
+		LeapVisualizer::getHands()[0]->unregisterListener(fireballSpawner);
+		LeapVisualizer::getHands()[1]->unregisterListener(fireballSpawner);
+		delete fireballSpawner;
+		fireballSpawner = NULL;
+		AbstractLevel::unload();
+	}
+
 	virtual void runLogic()
 	{
 		return;
 	}
+
+private:
+	FireballSpawner* fireballSpawner;
+
 };
 #endif

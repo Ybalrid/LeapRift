@@ -34,6 +34,12 @@ class LeapEventListener
 public:
 	LeapEventListener()
 	{
+		AnnEngine::log("Creating a LeapEventListener");
+	}
+
+	virtual ~LeapEventListener()
+	{
+		AnnEngine::log("Deleting a LeapEventListener");
 	}
 	
 	bool notifyEvent(LeapEvent* event, LeapEventType eventType)
@@ -47,7 +53,7 @@ public:
 		return false;
 	}
 
-	virtual bool closeEvent(LeapCloseEvent* e) = 0;
+	virtual bool closeEvent(LeapCloseEvent* e){return false;}
 };
 
 class LeapLoggerListener : public LeapEventListener

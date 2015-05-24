@@ -10,6 +10,7 @@ class LeapVisualizer
 {
 public:
 	LeapVisualizer();
+	~LeapVisualizer();
 	LeapVisualizer* getPointer(){return this;}
 	void setInterfarce(AnnLeapInterface* interface);
 	void setPov(OgrePose pose);
@@ -21,11 +22,15 @@ public:
 
 	void update();
 
+	static HandObject** getHands()
+	{
+		return visualHands;
+	}
 
 private:
 	AnnLeapInterface* inter;
 	enum {left, right};
-	HandObject* visualHands[2];
+	static HandObject* visualHands[2];
 
 	Ogre::Vector3 LeapEyeOffset;
 	Ogre::Matrix4 currentPov;

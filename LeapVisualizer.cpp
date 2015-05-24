@@ -3,6 +3,13 @@
 #include <sstream>
 using namespace Annwvyn;
 
+HandObject* LeapVisualizer::visualHands[2] = {NULL, NULL};
+
+LeapVisualizer::~LeapVisualizer()
+{
+	for(size_t i(0); i < 2; ++i) visualHands[i] = NULL;
+}
+
 LeapVisualizer::LeapVisualizer()
 {
 	LeapEyeOffset = Ogre::Vector3(0, 0, -0.08f);
