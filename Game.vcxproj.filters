@@ -65,6 +65,9 @@
     <ClInclude Include="LeapEvent.hpp">
       <Filter>LeapSystem\EventSystem</Filter>
     </ClInclude>
+    <ClInclude Include="Demo2.hpp">
+      <Filter>LevelSystem\DemoLevels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LevelSystem">

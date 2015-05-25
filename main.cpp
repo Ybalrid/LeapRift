@@ -14,6 +14,7 @@
 #include "LevelManager.hpp"
 #include "Demo0.hpp"
 #include "Demo1.hpp"
+#include "Demo2.hpp"
 
 //Namespaces
 using namespace std;
@@ -40,6 +41,8 @@ public:
 				lm->jump(level_id(0));
 			if(e.getKey() == Annwvyn::KeyCode::two)
 				lm->jump(level_id(1));
+			if(e.getKey() == Annwvyn::KeyCode::three)
+				lm->jump(level_id(2));
 		}
 	}
 
@@ -83,6 +86,7 @@ AnnMain()
 
 	lm->addLevel(new Demo0);
 	lm->addLevel(new Demo1);
+	lm->addLevel(new Demo2);
 
 	lm->jumpToFirstLevel();
 
