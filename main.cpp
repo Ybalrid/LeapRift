@@ -89,8 +89,6 @@ AnnMain()
 	AnnEngine::Instance()->useDefaultEventListener();
 	AnnEngine::Instance()->getEventManager()->addListener(new LevelManagerListener(AnnEngine::Instance()->getPlayer(), lm));
 
-	//AnnEngine::Instance()->setDebugPhysicState(true);
-
 	AnnEngine::Instance()->resetOculusOrientation();
 	AnnEngine::Instance()->openDebugWindow();
 	do

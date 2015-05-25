@@ -6,7 +6,7 @@ void HandObject::atRefresh()
 {
 	if(vis) vis->update();
 
-	if(closed && palmRadius > 0.09)
+	if(closed && palmRadius > 0.1)
 	{
 		closed = false;
 
@@ -18,7 +18,7 @@ void HandObject::atRefresh()
 		notifyListener(&e, HAND_CLOSED);
 	}
 
-	if(!closed && palmRadius < 0.06)
+	if(!closed && palmRadius < 0.05)
 	{
 		closed = true;
 

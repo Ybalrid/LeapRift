@@ -4,16 +4,28 @@
 #include "AbstractLevel.hpp"
 
 #include "GrabableObject.hpp"
+#include "ObjectSpawner.hpp"
 
 using namespace Annwvyn;
 
 class Demo0 : public AbstractLevel
 {
 public:
+
+	Demo0() : AbstractLevel(),
+		os(NULL),
+		lboundingBox(NULL),
+		rboundingBox(NULL),
+		now(0),
+		last(0)
+	{}
+
 	virtual void load()
 	{
 		AnnEngine* GameEngine = AnnEngine::Instance();
-	
+		os = new ObjectSpawner(GameEngine);
+		os->setEntityName("Ball.mesh");
+		os->setSpawnPoint(AnnVect3(0.1f, 0.55f, 10.3f));
 		AnnLightObject* l (GameEngine->addLight());
 		l->setPosition(Ogre::Vector3(0,1,10));
 		levelLighting.push_back(l);
@@ -51,15 +63,66 @@ public:
 		GameEngine->getPlayer()->setOrientation(Ogre::Euler(Ogre::Real(M_PI)));
 		GameEngine->resetPlayerPhysics();
 
-		GrabableObject* ball = (GrabableObject*) GameEngine->createGameObject("Ball.mesh", new GrabableObject);
-		levelContent.push_back(ball);
+		//GrabableObject* ball = (GrabableObject*) GameEngine->createGameObject("Ball.mesh", new GrabableObject);
+		//levelContent.push_back(ball);
 
-		ball->setPos(0.1f, 0.55f, 10.3f);
+		//ball->setPos();
+
+
+		lboundingBox = GameEngine->createGameObject("Box.mesh");
+		rboundingBox = GameEngine->createGameObject("Box.mesh");
+
+		Ogre::Vector3 size(0.25,0.02,0.15);
+
+		lboundingBox->setScale(size);
+		rboundingBox->setScale(size);
+
+		lboundingBox->setUpPhysics(0, boxShape, false);
+		rboundingBox->setUpPhysics(0, boxShape, false);
+
+		lboundingBox->Entity()->setVisible(false);
+		rboundingBox->Entity()->setVisible(false);
+
+		levelContent.push_back(lboundingBox);
+		levelContent.push_back(rboundingBox);
+	}
+
+	virtual void unload()
+	{
+		os->reset();
+		delete os; 
+		os = NULL;
+		AbstractLevel::unload();
 	}
 
 	virtual void runLogic()
 	{
-		return;
+		now = AnnEngine::Instance()->getTimeFromStartUp();
+
+		if(now - last >= 1000)
+		{
+			last = now;
+			os->spawn();
+		}
+
+		if(os->getList().size() >= 15) os->reset();
+
+		HandObject* leftHand(LeapVisualizer::getHands()[0]);
+		HandObject* rightHand(LeapVisualizer::getHands()[1]);
+		lboundingBox->setPos(leftHand->pos());
+		rboundingBox->setPos(rightHand->pos());
+
+		lboundingBox->setOrientation(leftHand->getWristOrientation());
+		rboundingBox->setOrientation(rightHand->getWristOrientation());
+
+		if(!leftHand->isVisible()) lboundingBox->setPos(0,1000,0);
+		if(!rightHand->isVisible()) rboundingBox->setPos(0,1000,0);
 	}
+
+private:
+	ObjectSpawner* os;
+	AnnGameObject* lboundingBox;
+	AnnGameObject* rboundingBox;
+	double now, last;
 };
 #endif

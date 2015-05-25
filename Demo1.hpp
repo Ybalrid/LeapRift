@@ -8,19 +8,195 @@
 
 using namespace Annwvyn;
 
+class FireBall : public AnnGameObject
+{
+public :
+	FireBall(size_t type) : AnnGameObject()
+	{
+		hand = type;
+		if(hand != 0 && hand != 1)
+			hand = -1;
+		shooted = false;
+		speed = AnnVect3(0,0,0);
+		creationTime = -1;
+
+		
+	}
+
+	void postInit()
+	{
+		setUpPhysics(1000, phyShapeType::sphereShape);
+		//Ogre::ParticleSystem* fire = AnnEngine::Instance()->getSceneManager()->createParticleSystem("fire");
+		//this->node()->attachObject(fire);
+	}
+
+	void setHand(size_t creator)
+	{
+		hand = creator;
+	}
+
+	void atRefresh()
+	{
+		if((hand == 0 || hand == 1) && !shooted)
+		{
+			HandObject* creator = LeapVisualizer::getHands()[hand];
+			this->setPos(creator->pos());
+			//this->setLinearSpeed(speed);
+		}
+		if((hand == 0 || hand == 1) && shooted)
+		{
+			HandObject* creator = LeapVisualizer::getHands()[hand];			
+			this->setLinearSpeed(speed);
+		}
+	}
+
+	void shoot()
+	{
+		HandObject* creator = LeapVisualizer::getHands()[hand];
+		shooted = true;
+		speed = AnnEngine::Instance()->getPoseFromOOR().orientation * AnnVect3(0,0,-3);
+		this->setPos(creator->pos());
+	    creationTime = AnnEngine::Instance()->getTimeFromStartUp();
+		
+	}
+
+	void setCreationTime(double time)
+	{
+		//creationTime = time;
+	}
+
+	double getCreationTime()
+	{
+		return creationTime;
+	}
+
+	bool isShooted()
+	{
+		return shooted;
+	}
+
+private:
+	size_t hand;
+	bool shooted;
+	AnnVect3 speed;
+	double creationTime;
+};
+
 class FireballSpawner : public LeapEventListener
 {
 public:
 	FireballSpawner() : LeapEventListener()
 	{
+		for(size_t i(0); i < 2; i++) 
+		{
+			fireballCharging[i] = false;
+			fireballs[i] = NULL;
+		}
 
+		lifespan = 3;
+	}
+
+	~FireballSpawner()
+	{
+
+		if(list.empty()) return;
+		std::vector<FireBall*>::iterator it = list.begin();
+		while(it != list.end())
+		{
+			AnnEngine::Instance()->destroyGameObject(*it++);
+		}
 	}
 
 	bool closeEvent(LeapCloseEvent* e)
 	{
+		size_t type = getFromString(e->hand);
 		AnnEngine::log("fireball interaction");
+
+		if(!fireballCharging[type] && e->close)
+		{
+
+			createFireball(e->hand);
+			fireballCharging[type] = true;
+
+
+		}
+
+		else if(fireballCharging[type] && !e->close)
+		{
+			shootFireball(e->hand);
+			fireballCharging[type] = false;
+		}
+
 		return true;
 	}
+
+	void createFireball(std::string type)
+	{
+		createFireball(getFromString(type));
+	}
+
+	void createFireball(size_t type)
+	{
+		AnnEngine::log(type + " create fireball");
+		//if(fireballs[type])
+		//	AnnEngine::Instance()->destroyGameObject(fireballs[type]);
+
+		fireballs[type] = (FireBall*) AnnEngine::Instance()->createGameObject("fireball.mesh", new FireBall(type));
+
+		list.push_back(fireballs[type]);
+	}
+
+	void shootFireball(std::string type)
+	{
+		shootFireball(getFromString(type));
+
+	}
+	void shootFireball(size_t type)
+	{
+		AnnEngine::log(type + " shoot fireball");
+		if(!fireballs[type]) return;
+		fireballs[type]->shoot();
+	}
+
+	void tick()
+	{
+		std::stringstream ss;
+		std::vector<FireBall*>::iterator it;
+		it = list.begin();
+		FireBall* fireball(NULL);
+		while(it != list.end())
+		{	
+			fireball = *it;
+			ss.str("");
+			ss << "Ball " << (void*) *it << " Creation time : " << (*it)->getCreationTime();
+			AnnEngine::log(ss.str());
+			ss.str("");
+			ss << "Current status : " << AnnEngine::Instance()->getTimeFromStartUp() - fireball->getCreationTime();
+			AnnEngine::log(ss.str());
+			if(fireball->isShooted())
+				if(AnnEngine::Instance()->getTimeFromStartUp() - fireball->getCreationTime() > lifespan*1000)
+				{
+					AnnEngine::Instance()->destroyGameObject(fireball);
+					it = list.erase(it);
+					continue;
+				}
+			++it;
+		}
+	}
+
+private:
+	size_t getFromString(std::string type)
+	{
+		if(type == "right")
+			return 1;
+		return 0;
+	}
+
+	bool fireballCharging[2];
+	FireBall* fireballs[2];
+	std::vector<FireBall*> list;
+
+	double lifespan;
 };
 
 class Sinbad : public AnnGameObject
@@ -54,7 +230,7 @@ public:
 
 		AnnEngine::Instance()->log("Demo1");
 		AnnEngine* GameEngine(AnnEngine::Instance());
-		
+
 		AnnLightObject* l (GameEngine->addLight());
 		l->setPosition(Ogre::Vector3(0,2,10));
 		l->setType(Ogre::Light::LT_SPOTLIGHT);
@@ -83,7 +259,7 @@ public:
 		levelContent.push_back(Sign);
 
 		levelContent.push_back(GameEngine->createGameObject("Sinbad.mesh", new Sinbad));
-		
+
 		GameEngine->getPlayer()->setOrientation(Ogre::Euler(0));
 		GameEngine->getPlayer()->setPosition(Ogre::Vector3(0,1,0));
 		GameEngine->resetPlayerPhysics();
@@ -105,6 +281,7 @@ public:
 
 	virtual void runLogic()
 	{
+		if(fireballSpawner) fireballSpawner->tick();
 		return;
 	}
 
