@@ -1,47 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="Annwvyn::AbstractLevel">
-    <Position X="2.25" Y="4.75" Width="2.75" />
+    <Position X="8.5" Y="6.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>BIAAAAAAAMAAAAAAAAAAAAEACEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AbstractLevel.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Annwvyn::AnnGameObject" Collapsed="true">
-    <Position X="15" Y="4.75" Width="1.5" />
+    <Position X="13.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ESBgCEyAAQkQQQAhIBIABYCQIBFsEEAjIBUBCBwADAg=</HashCode>
       <FileName>c:\oculus\annwvynsdk\annwvyn\include\anngameobject.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GrabableObject">
-    <Position X="13" Y="6" Width="4" />
+    <Position X="9" Y="1.75" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACQIAAAQAAAAAQAAAAQAAAAAAQAAQAAAAAAA=</HashCode>
       <FileName>GrabableObject.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Demo0">
-    <Position X="0.75" Y="8" Width="1.5" />
+    <Position X="6.5" Y="9.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAIAAgAAAAAAAIAIAAEAAAAAAAAEAAAQAAgA=</HashCode>
       <FileName>Demo0.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Annwvyn::AnnLeapInterface">
-    <Position X="30.25" Y="0.75" Width="3.25" />
+    <Position X="14.5" Y="16.5" Width="3" />
     <TypeIdentifier>
       <HashCode>RIABAUIAEABAEAEAAIBAAQAAAAAAAAAAAAAAgAQIAAA=</HashCode>
       <FileName>LeapIntegration.hpp</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="rightHand" />
-      <Field Name="leftHand" />
       <Field Name="controller" />
+      <Field Name="leftHand" />
+      <Field Name="rightHand" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Annwvyn::LevelManager">
-    <Position X="2.25" Y="0.5" Width="2.75" />
+    <Position X="4.5" Y="5.25" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AEACAAEAAAgAAAAAAAAgAAAAiAAgAAAAAAAgAAAAAAA=</HashCode>
       <FileName>LevelManager.hpp</FileName>
@@ -51,7 +51,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="ObjectSpawner">
-    <Position X="13.25" Y="13.75" Width="2.75" />
+    <Position X="23" Y="10.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAEQAEAAAAAAAAAAAAQQARAAgAAAAAAAAAAwQAAAA=</HashCode>
       <FileName>ObjectSpawner.hpp</FileName>
@@ -61,63 +61,56 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Sinbad">
-    <Position X="10.75" Y="6" Width="1.5" />
+    <Position X="6.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Demo1.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LeapInteractionManager" Collapsed="true">
-    <Position X="23.25" Y="0.5" Width="1.5" />
-    <NestedTypes>
-      <Enum Name="LeapInteractionManager::__unnamed_enum_060a_1" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>LeapInteractionManager.hpp</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
+    <Position X="27.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAQAAAAAAAAAKAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>LeapInteractionManager.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="std::vector&lt;_Ty, _Alloc&gt;" Collapsed="true">
-    <Position X="13.25" Y="11.75" Width="4" />
+    <Position X="21.75" Y="14.75" Width="4" />
     <TypeIdentifier>
       <HashCode>IUoEEIEqCLBMUEBAAKMIAgISAgUESAIAxQEwggAEAAI=</HashCode>
       <FileName>c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LeapEvent">
-    <Position X="0.5" Y="11.75" Width="1.5" />
+    <Position X="10.25" Y="12.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>LeapEvent.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LeapCloseEvent">
-    <Position X="0.5" Y="13.5" Width="1.5" />
+    <Position X="10.25" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
       <FileName>LeapEvent.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LeapEventListener">
-    <Position X="4.75" Y="10.75" Width="4.25" />
+    <Position X="16.5" Y="7.5" Width="4.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAAAAQAAAAAAAEAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>LeapEvent.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LeapLoggerListener">
-    <Position X="7.25" Y="13.25" Width="2.75" />
+    <Position X="19" Y="10" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAhAAAAAQAAAAQAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>LeapEvent.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Demo1">
-    <Position X="3" Y="8" Width="1.5" />
+    <Position X="9.75" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAIAAQAAAAAAAAAgAAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Demo1.hpp</FileName>
@@ -127,14 +120,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Demo2">
-    <Position X="5.25" Y="8" Width="1.5" />
+    <Position X="12" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Demo2.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FireballSpawner">
-    <Position X="3.75" Y="13.25" Width="2.75" />
+    <Position X="15.5" Y="10" Width="2.75" />
     <TypeIdentifier>
       <HashCode>BABBAgBAABAAAABQAAAAAAAAAAAAABAAEBAAAAAAAAA=</HashCode>
       <FileName>Demo1.hpp</FileName>
@@ -144,14 +137,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="FireBall">
-    <Position X="17.75" Y="6" Width="2.75" />
+    <Position X="13.75" Y="1.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAACAAEAAAQAACkAAgAAAIQAAAAAQCBAAAAAAAAAAA=</HashCode>
       <FileName>Demo1.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LeapVisualizer">
-    <Position X="21.75" Y="12.25" Width="4.5" />
+    <Position X="22" Y="0.75" Width="4.25" />
     <NestedTypes>
       <Enum Name="LeapVisualizer::__unnamed_enum_0005_1" Collapsed="true">
         <TypeIdentifier>
@@ -168,14 +161,14 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="HandObject">
-    <Position X="28.25" Y="12.25" Width="1.5" />
+    <Position X="17.25" Y="1.75" Width="4" />
     <TypeIdentifier>
       <HashCode>ACBAAgCAAECAgAAAAAAAAEAAAJABAAABCIBAAAAAAEA=</HashCode>
       <FileName>HandObject.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LevelManagerListener">
-    <Position X="11.75" Y="1.25" Width="1.5" />
+    <Position X="0.5" Y="1.75" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAgAAAAAAAAABAAAAAAAAAABAAAACAAAA=</HashCode>
       <FileName>main.cpp</FileName>
@@ -185,28 +178,28 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Leap::Hand" Collapsed="true">
-    <Position X="28" Y="2" Width="1.5" />
+    <Position X="12.25" Y="17.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAGIoAAKKErBACgAAAhYCggABQAAAAQACEQTAAAgA=</HashCode>
       <FileName>leapsdk\include\leap.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Leap::Controller" Collapsed="true">
-    <Position X="34.5" Y="1" Width="1.5" />
+    <Position X="18.25" Y="17.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAFEYAgIIAAAAAAQAAIAACAAEAAAAAIAQAAAAA=</HashCode>
       <FileName>leapsdk\include\leap.h</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="OgrePose" Collapsed="true">
-    <Position X="21.5" Y="1.75" Width="1.5" />
+    <Position X="27.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>c:\oculus\annwvynsdk\annwvyn\include\ogreoculusrender.hpp</FileName>
     </TypeIdentifier>
   </Struct>
   <Enum Name="LeapEventType" Collapsed="true">
-    <Position X="2.25" Y="11.5" Width="1.5" />
+    <Position X="27.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>LeapEvent.hpp</FileName>
