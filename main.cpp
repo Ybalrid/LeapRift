@@ -26,8 +26,7 @@ class LevelManagerListener : LISTENER
 public:
 	LevelManagerListener(AnnPlayer* p, LevelManager* levelManager) : constructListener(p),
 		lm(levelManager)
-	{
-	}
+	{}
 
 	void KeyEvent(AnnKeyEvent e)
 	{
