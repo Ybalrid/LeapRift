@@ -25,7 +25,7 @@ public :
 
 	void postInit()
 	{
-		setUpPhysics(1000, phyShapeType::sphereShape);
+		setUpPhysics(1000, phyShapeType::sphereShape, false);
 		//Ogre::ParticleSystem* fire = AnnEngine::Instance()->getSceneManager()->createParticleSystem("fire");
 		//this->node()->attachObject(fire);
 	}
@@ -54,7 +54,7 @@ public :
 	{
 		HandObject* creator = LeapVisualizer::getHands()[hand];
 		shooted = true;
-		speed = AnnEngine::Instance()->getPoseFromOOR().orientation * AnnVect3(0,0,-3);
+		speed = AnnEngine::Instance()->getPoseFromOOR().orientation * AnnVect3(0,0,-5);
 		this->setPos(creator->pos());
 	    creationTime = AnnEngine::Instance()->getTimeFromStartUp();
 		

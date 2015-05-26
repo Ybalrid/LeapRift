@@ -105,7 +105,8 @@ public:
 			os->spawn();
 		}
 
-		if(os->getList().size() >= 15) os->reset();
+		if(os->getList().size() >= 15) 
+			os->reset();
 
 		HandObject* leftHand(LeapVisualizer::getHands()[0]);
 		HandObject* rightHand(LeapVisualizer::getHands()[1]);
@@ -117,7 +118,7 @@ public:
 
 		if(!leftHand->isVisible()) lboundingBox->setPos(0,1000,0);
 		if(!rightHand->isVisible()) rboundingBox->setPos(0,1000,0);
-	}
+ 	}
 
 private:
 	ObjectSpawner* os;

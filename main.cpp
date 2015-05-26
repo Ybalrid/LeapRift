@@ -56,7 +56,7 @@ private:
 AnnMain()
 {
 	AnnEngine::openConsole();
-	new AnnEngine("My Game");
+	new AnnEngine("My Game", false);
 
 	AnnEngine::Instance()->loadDir("GUI");
 	AnnEngine::Instance()->loadDir("media/sky");
