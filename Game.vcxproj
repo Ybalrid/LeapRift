@@ -25,7 +25,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractLevel.hpp" />
-    <ClInclude Include="DebugGUI.hpp" />
     <ClInclude Include="Demo0.hpp" />
     <ClInclude Include="Demo1.hpp" />
     <ClInclude Include="Demo2.hpp" />
