@@ -60,6 +60,7 @@ AnnMain()
 	AnnEngine::Instance()->loadDir("GUI");
 	AnnEngine::Instance()->loadDir("media/sky");
 	AnnEngine::Instance()->loadDir("media/example");
+	AnnEngine::Instance()->loadDir("media/bureau");
 	AnnEngine::Instance()->initResources();
 
 	AnnEngine::Instance()->oculusInit();
