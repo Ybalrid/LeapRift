@@ -72,7 +72,7 @@ public:
 		lboundingBox = GameEngine->createGameObject("Box.mesh");
 		rboundingBox = GameEngine->createGameObject("Box.mesh");
 
-		Ogre::Vector3 size(0.25,0.02,0.15);
+		Ogre::Vector3 size(0.25f,0.02f,0.15f);
 
 		lboundingBox->setScale(size);
 		rboundingBox->setScale(size);

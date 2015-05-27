@@ -8,9 +8,11 @@
 
 using namespace Annwvyn;
 
+///Class representing a fireball
 class FireBall : public AnnGameObject
 {
 public :
+	///Create a fireball indexed from an hand type
 	FireBall(size_t type) : AnnGameObject()
 	{
 		hand = type;
@@ -23,6 +25,7 @@ public :
 		
 	}
 
+	///Create the physical state of the Fireball
 	void postInit()
 	{
 		setUpPhysics(1000, phyShapeType::sphereShape, false);
@@ -30,11 +33,13 @@ public :
 		//this->node()->attachObject(fire);
 	}
 
+	///Set the creator hand
 	void setHand(size_t creator)
 	{
 		hand = creator;
 	}
 
+	///At each frame, if ball in hand : update position, if shooted : set linear speed
 	void atRefresh()
 	{
 		if((hand == 0 || hand == 1) && !shooted)
@@ -50,6 +55,7 @@ public :
 		}
 	}
 
+	///Shoot the fireball
 	void shoot()
 	{
 		HandObject* creator = LeapVisualizer::getHands()[hand];
@@ -60,16 +66,20 @@ public :
 		
 	}
 
+
+	///Set the date the fireball has been shot. (overide the currently knew one)
 	void setCreationTime(double time)
 	{
-		//creationTime = time;
+		creationTime = time;
 	}
 
+	///Get the creation time
 	double getCreationTime()
 	{
 		return creationTime;
 	}
 
+	///Get the shooted state
 	bool isShooted()
 	{
 		return shooted;
@@ -82,9 +92,11 @@ private:
 	double creationTime;
 };
 
+///Spawn fireballs reacting to close event
 class FireballSpawner : public LeapEventListener
 {
 public:
+	///Create the spawner
 	FireballSpawner() : LeapEventListener()
 	{
 		for(size_t i(0); i < 2; i++) 
@@ -96,6 +108,7 @@ public:
 		lifespan = 3;
 	}
 
+	///Destroy the spawner
 	~FireballSpawner()
 	{
 
@@ -107,6 +120,7 @@ public:
 		}
 	}
 
+	///process the close event
 	bool closeEvent(LeapCloseEvent* e)
 	{
 		size_t type = getFromString(e->hand);
@@ -130,11 +144,13 @@ public:
 		return true;
 	}
 
+	///Create a fireball
 	void createFireball(std::string type)
 	{
 		createFireball(getFromString(type));
 	}
 
+	///Create a fireball 
 	void createFireball(size_t type)
 	{
 		AnnEngine::log(type + " create fireball");
@@ -146,11 +162,14 @@ public:
 		list.push_back(fireballs[type]);
 	}
 
+	///Shoot a fireball
 	void shootFireball(std::string type)
 	{
 		shootFireball(getFromString(type));
 
 	}
+
+	///Shoot a fireball
 	void shootFireball(size_t type)
 	{
 		AnnEngine::log(type + " shoot fireball");
@@ -158,6 +177,7 @@ public:
 		fireballs[type]->shoot();
 	}
 
+	///Please call that at each frame to process fireball timing
 	void tick()
 	{
 		std::stringstream ss;
@@ -185,6 +205,7 @@ public:
 	}
 
 private:
+	///Transform a string typed hand information to an index one
 	size_t getFromString(std::string type)
 	{
 		if(type == "right")
@@ -192,10 +213,13 @@ private:
 		return 0;
 	}
 
+	///are fireballs currently in hands?
 	bool fireballCharging[2];
+	///The fireballs themselves
 	FireBall* fireballs[2];
+	///List of current living fireballs
 	std::vector<FireBall*> list;
-
+	///TTL of a fireball
 	double lifespan;
 };
 

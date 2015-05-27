@@ -3,11 +3,12 @@
 
 #include "AbstractLevel.hpp"
 
-class Demo2 : public AbstractLevel
+class Demo2 : public Annwvyn::AbstractLevel
 {
 public:
 	void load()
 	{
+		AnnEngine::Instance()->setAmbiantLight(Ogre::ColourValue(0.2f,0.2f,0.2f));
 		//Load static meshes
 		levelContent.push_back(AnnEngine::Instance()->createGameObject("chaise.mesh"));
 		levelContent.push_back(AnnEngine::Instance()->createGameObject("chaise.1.mesh"));
@@ -38,7 +39,10 @@ public:
 
 		//light
 		levelLighting.push_back(AnnEngine::Instance()->addLight());
+		levelLighting.push_back(AnnEngine::Instance()->addLight());
 		levelLighting[0]->setPosition(AnnVect3(0,1,-2));
+		levelLighting[1]->setPosition(AnnVect3(0,1,0));
+
 	}
 
 	void runLogic()

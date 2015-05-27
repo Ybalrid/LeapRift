@@ -11,12 +11,17 @@ using namespace Annwvyn;
 class GrabableObject : public AnnGameObject
 {
 	public:
+		///Object that can be grabbed by an hand
 		GrabableObject();
+		///Grabbed state
 		bool isGrabed();
+		///The hand that is holding this obect
 		HandObject* currentHandObjectHolding();
+		///Radius of that object
 		void setObjectRadius(float r);
 
-		Ogre::Vector3 getSeparationVector(Ogre::Quaternion handOrientation);
+		///Distance between object center and the hand center, oriented following the hand
+		Ogre::Vector3 getSeparationVector(Ogre::Quaternion handOrientation = AnnQuaternion::IDENTITY);
 
 	private:
 		//friend void HandObject::grab(GrabableObject*);

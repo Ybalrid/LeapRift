@@ -23,6 +23,7 @@ public:
 		closed = false;
 	}
 
+	///Get the orientation of the wrist bone
 	Ogre::Quaternion getWristOrientation()
 	{
 		Ogre::Entity* hand = this->Entity();
@@ -36,6 +37,7 @@ public:
 		return Ogre::Quaternion::IDENTITY;
 	}
 
+	///Set the radius of the palm
 	void setPalmRadius(float radius)
 	{
 		palmRadius = radius/1000;
@@ -54,33 +56,44 @@ public:
 	}
 	*/
 
+	///Call any known visualizer + compute events
 	void atRefresh();
 	
-
+	///Set a pointer to a visualizer
+	///\param p pointer to visualizer
 	void setVisualizerAddress(LeapVisualizer* p)
 	{
 		vis = p;
 	}
 
+	///Set the type of the hand
+	///\param stype type of the hand. may be "right" or "left"
 	void setType(std::string stype)
 	{
 		type = stype;
 	}
 
+	///Register a listener to the event listener
+	///\param listener pointer to a listener
 	void registerListener(LeapEventListener* listener)
 	{
 		if(listener)
 			listeners.push_back(listener);
 	}
 
+	///Forget all known listeners
 	void unregisterAllListeners()
 	{
 		listeners.clear();
 	}
 
+	///Unregister a particular listener
+	///\param listener pointer to that listener
 	void unregisterListener(LeapEventListener* listener);
 
-
+	///Notify all event listener about a listener
+	///\param e LeapEvent pointer to an event
+	///\param eventType The type of the event
 	void notifyListener(LeapEvent* e, LeapEventType eventType)
 	{
 		std::vector<LeapEventListener*>::iterator it;
@@ -91,11 +104,17 @@ public:
 	}
 
 private:
+	///List of listener
 	std::vector<LeapEventListener*> listeners;
+	///Vizualizer to update
 	LeapVisualizer* vis;
+	///Radius of the palm
 	float palmRadius;
+	///Object grabbed by the hand
 	GrabableObject* gObject;
+	///true if the hand is closed
 	bool closed;
+	///Type of the hand. "right" or "left".
 	std::string type;
 };
 

@@ -1,4 +1,12 @@
 #include "stdafx.h"
+
+
+/**
+\mainpage
+This is the documentation for this ESIEA student projet : <a href="http://github.com/Ybalrid/LeapRift">Gite repository on github</a>
+*/
+
+
 //Includes
 #include <Annwvyn.h>
 
