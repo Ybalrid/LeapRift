@@ -19,6 +19,17 @@ class GrabableObject : public AnnGameObject
 		HandObject* currentHandObjectHolding();
 		///Radius of that object
 		void setObjectRadius(float r);
+		float getObjectRadius(){return radius;}
+		void beGrabbed(HandObject* h ) 
+		{ 
+			grabed = true;
+			holder = h;
+		}
+		void release()
+		{
+			holder = NULL;
+			grabed = false;
+		}
 
 		///Distance between object center and the hand center, oriented following the hand
 		Ogre::Vector3 getSeparationVector(Ogre::Quaternion handOrientation = AnnQuaternion::IDENTITY);

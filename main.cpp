@@ -3,7 +3,8 @@
 
 /**
 \mainpage
-This is the documentation for this ESIEA student projet : <a href="http://github.com/Ybalrid/LeapRift">Gite repository on github</a>
+This is the documentation for this ESIEA student projet : <a href="http://github.com/Ybalrid/LeapRift">Git repository on github</a>
+
 */
 
 
@@ -92,6 +93,7 @@ AnnMain()
 
 	LevelManager* lm = new LevelManager;
 
+	//The order is is important. 
 	lm->addLevel(new Demo0);
 	lm->addLevel(new Demo1);
 	lm->addLevel(new Demo2);

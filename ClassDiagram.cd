@@ -17,7 +17,7 @@
   <Class Name="GrabableObject">
     <Position X="9" Y="1.75" Width="4" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAACQIAAAQAAAAAQAAAAQAAAAAAQAAQAAAAAAA=</HashCode>
+      <HashCode>EAAAABAACQIAAAQAAAAAQAAAAQAAAAAAQAgQAAAAAAA=</HashCode>
       <FileName>GrabableObject.hpp</FileName>
     </TypeIdentifier>
   </Class>
@@ -67,13 +67,6 @@
       <FileName>Demo1.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="LeapInteractionManager" Collapsed="true">
-    <Position X="27.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAEAAAQAAAAAAAAAKAAAAAAAAAAAAAAAAAEAAA=</HashCode>
-      <FileName>LeapInteractionManager.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="std::vector&lt;_Ty, _Alloc&gt;" Collapsed="true">
     <Position X="29.25" Y="15.25" Width="4" />
     <TypeIdentifier>
@@ -119,7 +112,7 @@
   <Class Name="Demo2">
     <Position X="11.75" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AIAAAAAAAIAgAAAAAAAAAAAAAEAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>Demo2.hpp</FileName>
     </TypeIdentifier>
   </Class>
@@ -150,7 +143,7 @@
   <Class Name="LeapVisualizer">
     <Position X="22" Y="0.5" Width="4.25" />
     <NestedTypes>
-      <Enum Name="LeapVisualizer::__unnamed_enum_0005_1" Collapsed="true">
+      <Enum Name="LeapVisualizer::__unnamed_enum_000b_1" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>LeapVisualizer.hpp</NewMemberFileName>
         </TypeIdentifier>
@@ -191,7 +184,7 @@
   <Class Name="Leap::Controller" Collapsed="true">
     <Position X="18.25" Y="17.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAFEYAgIIAAAAAAQAAIAACAAEAAAAAIAQAAAAA=</HashCode>
+      <HashCode>AAgCAAAFEYAgIIIBAAAAQAAIEACAAEAAAAAIAQAAAAA=</HashCode>
       <FileName>leapsdk\include\leap.h</FileName>
     </TypeIdentifier>
   </Class>

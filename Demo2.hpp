@@ -2,12 +2,21 @@
 #define DEMO2
 
 #include "AbstractLevel.hpp"
+#include "LeapInteractionManager.hpp"
+
+using namespace Annwvyn;
 
 class Demo2 : public Annwvyn::AbstractLevel
 {
 public:
+
+	Demo2() : AbstractLevel(),
+		lim(NULL)
+	{}
 	void load()
 	{
+		AnnEngine::Instance()->setDebugPhysicState(true);
+		lim = new LeapInteractionManager(LeapVisualizer::getHands()[0], LeapVisualizer::getHands()[1]);
 		AnnEngine::Instance()->setAmbiantLight(Ogre::ColourValue(0.2f,0.2f,0.2f));
 		//Load static meshes
 		levelContent.push_back(AnnEngine::Instance()->createGameObject("chaise.mesh"));
@@ -26,7 +35,7 @@ public:
 
 		//Correct scale
 		for(size_t i(0); i < levelContent.size(); i++)
-			levelContent[i]->setScale(AnnVect3(0.53f,0.53f,0.53f));
+			levelContent[i]->setScale(AnnVect3(0.60f,0.60f,0.60f));
 		
 		//Init static object
 		for(size_t i(1); i < levelContent.size(); i++)
@@ -43,11 +52,34 @@ public:
 		levelLighting[0]->setPosition(AnnVect3(0,1,-2));
 		levelLighting[1]->setPosition(AnnVect3(0,1,0));
 
+		for(int i(0); i < 3; i++)
+		{
+			GrabableObject* childCube = (GrabableObject*)AnnEngine::Instance()->createGameObject("PlayCube.mesh");
+			childCube->setPos(0,-0.1 + 0.1*i,-0.5);
+			//childCube->setScale((1.5,1.5,1.5));
+			childCube->setUpPhysics(0.1, Annwvyn::phyShapeType::boxShape, false);
+			childCube->setObjectRadius(0.7);
+			lim->addTrackedGrabable(childCube);
+			levelContent.push_back(childCube);
+		}
 	}
+
+
 
 	void runLogic()
 	{
+		if(lim) lim->update();
 	}
+
+	void unload()
+	{
+		if(lim) delete lim;
+		lim = NULL;
+		AbstractLevel::unload();
+	}
+
+private:
+	LeapInteractionManager* lim;
 };
 
 #endif
